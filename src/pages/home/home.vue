@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    底部
+  <div>
+    首页
   </div>
 </template>
 
