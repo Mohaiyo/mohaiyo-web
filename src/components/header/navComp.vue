@@ -83,6 +83,8 @@ export default {
     border: 1px solid transparent;
     border-width: 0 0 1px;
     .nav-inner{
+      max-width: 1440px;
+      margin:0 auto;
       height: 56px;
       display: flex;
       justify-content: flex-start;
@@ -147,7 +149,6 @@ export default {
                 top: 56px;
                 left: 0px;
                 width: 100vw;
-                height: 90px;
                 text-align: center;
                 background-color:#fff;
                 .sub-menu-item{
@@ -316,8 +317,6 @@ export default {
     min-height: 50px;
     background-color: #fff;
     border-color: #f0f0f0;
-    // min-width: 768px;
-    max-width: 1440px;
     position: fixed;
     right: 0;
     left: 0;
