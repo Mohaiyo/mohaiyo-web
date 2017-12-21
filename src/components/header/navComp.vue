@@ -9,15 +9,11 @@
         <!-- 992px以上的屏幕使用菜单栏 -->
         <ul class="menu-list">
           <!-- 992px以上的屏幕使用菜单栏 -->
-          <li class="menu-item active">首页</li>
-          <li class="menu-item">热门</li>
-          <li class="menu-item">关于</li>
+          <li class="menu-item" :class="{active: index == menuIndex}" v-for="(item,index) of navList" :key="item.listId" @click="navHandler(index)">{{ item.listName }}</li>
           <!-- 992px以下的使用图标 -->
           <li class="menu-icon" ref="menu-icon" @click="menuHandler">
             <ul class="sub-menu menu-hover" v-show="menuShow">
-              <li class="sub-menu-item active">首页</li>
-              <li class="sub-menu-item">热门</li>
-              <li class="sub-menu-item">关于</li>
+              <li class="sub-menu-item" :class="{active: index == menuIndex}" v-for="(item,index) of navList" :key="item.listId" @click="navHandler(index)">{{ item.listName }}</li>
             </ul>
           </li>
         </ul>
@@ -27,10 +23,12 @@
         </div>
 
       </div>
-      <!-- 右侧录注册栏 未登录之前-->
+      <!-- 右侧录注册栏 -->
       <div class="log-bar">
+        <!-- 未登录之前 -->
         <a href="" class="sign-in" v-show="!hasSignIn">登录</a>
         <a href="" class="sign-up" v-show="!hasSignIn">注册</a>
+        <!-- 登录之后 -->
         <div class="user" v-show="hasSignIn">
           <a href="http://" class="avatar">
             <img src="../../assets/img/avatar.png" alt="avatar" :style="{width:'52px',height:'52px',borderRadius:'25px'}"/>
@@ -59,15 +57,20 @@ export default {
   name: '',
   data () {
     return {
-      msg: 'template',
+      navList: [{listId: 10001, listName: '主页'}, {listId: 10002, listName: '热门'}, {listId: 10003, listName: '关于'}],
       searchVal: '',
+      isActive: true,
       menuShow: false,
-      hasSignIn: true
+      hasSignIn: false,
+      menuIndex: 0
     }
   },
   methods: {
     menuHandler () {
       this.menuShow = !this.menuShow
+    },
+    navHandler (i) {
+      this.menuIndex = i
     }
   }
 }
@@ -86,14 +89,21 @@ export default {
       align-items: center;
       flex-flow: row nowrap;
       position: relative;
-      .logo{
-        display: block;
-        height: 56px;
-        padding: 14px 25px 15px 30px;
-        flex:1;
-        background:url('../../assets/img/gongfang_logo.png') no-repeat 60px 3px;
-        background-size: 50px 50px;
+      @media (min-width:320px) and (max-width:767px){
+        .logo{
+          display: none;
+        }
       }
+       @media (min-width:768px) {
+        .logo{
+          display: block;
+          height: 56px;
+          padding: 14px 25px 15px 30px;
+          flex:1;
+          background:url('../../assets/img/gongfang_logo.png') no-repeat 60px 3px;
+          background-size: 50px 50px;
+        }
+       }
       .nav-menu{
           display: flex;
           flex:6;
@@ -182,7 +192,7 @@ export default {
 
       }
       .log-bar{
-        flex:2;
+        flex:2.5;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -306,7 +316,7 @@ export default {
     min-height: 50px;
     background-color: #fff;
     border-color: #f0f0f0;
-    min-width: 768px;
+    // min-width: 768px;
     max-width: 1440px;
     position: fixed;
     right: 0;
