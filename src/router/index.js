@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const Home = r => require.ensure([], () => r(require('@/pages/index.vue')), 'home')
 const Index = r => require.ensure([], () => r(require('@/pages/home/home.vue')), 'home')
+const SignIn = r => require.ensure([], () => r(require('@/pages/sign/signIn.vue')), 'sign')
+const SignUp = r => require.ensure([], () => r(require('@/pages/sign/signUp.vue')), 'sign')
 
 Vue.use(Router)
 
@@ -20,7 +22,10 @@ export default new Router({
   },
   routes: [
     { path: '', redirect: '/home' },
-    { path: '/home',
+    { path: '/sign_in', component: SignIn, name: 'signIn' },
+    { path: '/sign_up', component: SignUp, name: 'signUp' },
+    {
+      path: '/home',
       component: Home,
       children: [
         { path: '', redirect: 'index' },

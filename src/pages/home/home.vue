@@ -21,11 +21,14 @@
         <div class="swiper-button-next" slot="button-next"></div>
         <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
       </swiper>
+      <div class="">
+
+      </div>
     </section>
     <section class="side-bar">
       <h3 class="board-title">文章分类</h3>
       <div class="board">
-        <a href="#" class="topic-item">
+        <a href="#" class="topic-item border-o">
           <span class="avatar-link">
             <img src="../../assets/img/react.png" class="avatar-image">
           </span>
@@ -202,12 +205,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-  .container{
-    padding-top:78px;
-    margin:0px auto;
-    display: flex;
-    flex-flow: row nowrap;
-  }
   @media (min-width:320px) and (max-width:767px){
     .container{
       width:100%;
@@ -282,7 +279,7 @@ export default {
       min-height: 228px;
       /*padding-top: 10px;*/
       background-color: #f5f5f5;
-      border:1px solid rgba(236, 97, 73, 0.5);
+      // border:1px solid rgba(24, 124, 183, 0.7);
       border-radius: 10px;
       .topic-item{
         display: flex;
@@ -292,7 +289,9 @@ export default {
         position: relative;
         /*display: inline-block;*/
         width: 100%;
-        border-bottom: 1px solid rgba(236, 97, 73, 0.5);
+        border: 1px solid rgba(24, 124, 183, 0);
+        border-radius: 10px;
+        transition: all .5s;
         cursor: pointer;
         padding: 5px;
         .avatar-link{
@@ -304,8 +303,13 @@ export default {
           }
         }
       }
+      .topic-item:hover{
+        border: 1px solid rgba(24, 124, 183, 0.7);
+        border-radius: 10px;
+        background-color: #fff;
+      }
       .topic-item:last-child{
-         border-bottom:none;
+        //  border-bottom:none;
       }
       .topic-descr{
         padding: 0px 30px;
@@ -315,6 +319,10 @@ export default {
           transition: all .2s ease;
           font-weight: bold;
           line-height: 1.6;
+        }
+        .topic-meta{
+          font-size: 14px;
+          line-height: 1.5;
         }
       }
       .icon-arrow-right{

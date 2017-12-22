@@ -3,7 +3,7 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="nav-inner">
       <!-- logo -->
-      <a href="" class="logo"></a>
+      <a href="/" class="logo"></a>
       <!-- 中间导航以及搜索栏 -->
       <div class="nav-menu">
         <!-- 992px以上的屏幕使用菜单栏 -->
@@ -26,8 +26,8 @@
       <!-- 右侧录注册栏 -->
       <div class="log-bar">
         <!-- 未登录之前 -->
-        <a href="" class="sign-in" v-show="!hasSignIn">登录</a>
-        <a href="" class="sign-up" v-show="!hasSignIn">注册</a>
+        <router-link to="/sign_in" class="sign-in" v-show="!hasSignIn">登录</router-link>
+        <router-link to="/sign_up" class="sign-up" v-show="!hasSignIn">注册</router-link>
         <!-- 登录之后 -->
         <div class="user" v-show="hasSignIn">
           <a href="http://" class="avatar">

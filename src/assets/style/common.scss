@@ -99,13 +99,41 @@ html,body{
 }
 
 @keyframes backOpacity{
-   0%   { opacity: 1 }
-   25%  { opacity: .5 }
-   50%  { opacity: 1 }
-   75%  { opacity: .5 }
-   100% { opacity: 1 }
+  0%   { opacity: 1 }
+  25%  { opacity: .5 }
+  50%  { opacity: 1 }
+  75%  { opacity: .5 }
+  100% { opacity: 1 }
 }
 
 .animation_opactiy{
-    animation: backOpacity 2s ease-in-out infinite;
+  animation: backOpacity 2s ease-in-out infinite;
 }
+
+//定义全局的container
+.container {
+  padding-top: 78px;
+  margin: 0px auto;
+  display: flex;
+  flex-flow: row nowrap;
+}
+  @media (min-width:320px) and (max-width:767px) {
+    .container {
+      width: 100%;
+      padding: 78px 20px 20px;
+    }
+  }
+
+  @media (min-width:768px) and (max-width:992px) {
+    .container {
+      max-width: 750px;
+    }
+  }
+
+  @media (min-width:992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+
+
