@@ -21,8 +21,8 @@
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
             <input type="text" class="radius-bottom" placeholder="验证码" maxlength="4">
-            <span class="sms-code">
-              <img src="../../assets/img/sms.png" alt="验证码">
+            <span class="sms-code" @click="getCaptchas">
+              <img :src="smsCode" alt="验证码">
             </span>
           </div>
           <input type="submit" value="点我登录" class="submit-btn">
@@ -45,12 +45,21 @@ export default {
   name: 'sign',
   data () {
     return {
-      msg: 'template'
+      msg: 'template',
+      smsCode: ''
     }
+  },
+  mounted () {
+    this.getCaptchas()
   },
   methods: {
     submit () {
       console.log('注册')
+    },
+    getCaptchas () {
+      this.$axios.get('/api/signin/captchas', {}).then(res => {
+        this.smsCode = res.data.code
+      })
     }
   }
 }
@@ -108,7 +117,7 @@ export default {
         .sms-code{
           position: absolute;
           right: 10px;
-          top: 1px;
+          top: 8px;
         }
         input.radius-top{
           border-radius: 4px 4px 0 0;
