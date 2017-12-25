@@ -51,6 +51,7 @@ export default {
   },
   mounted () {
     this.getCaptchas()
+    this.getPosts()
   },
   methods: {
     submit () {
@@ -59,6 +60,11 @@ export default {
     getCaptchas () {
       this.$axios.get('/api/signin/captchas', {}).then(res => {
         this.smsCode = res.data.code
+      })
+    },
+    getPosts () {
+      this.$axios.get('/api/posts', {}).then(res => {
+        console.log(res)
       })
     }
   }

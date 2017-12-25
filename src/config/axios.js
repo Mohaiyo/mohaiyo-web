@@ -6,7 +6,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
-const baseURL = ''
+const baseURL = '/'
 // 请求头配置
 axios.interceptors.request.use(config => {
     // 判断localStorage中是否存在api_token

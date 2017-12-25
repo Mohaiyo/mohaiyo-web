@@ -10,13 +10,16 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      //调用后台接口
+      // 调用后台接口
+      // 前端localhost:8090/api/poosts接口相当于 target + pathRewrite后的路径(如果为空那么则api则不会被发送出去，代表后台的接口是没有api的)
+      // 就是说配置中前端的 localhost:8090/api/poosts ==  http://99.12.204.118:3000/posts
+      // localhost:8090/api/signin/captchas ==  http://99.12.204.118:3000/signin/captchas
       '/api': {
-        target: 'http://192.168.1.103:3000',
+        target: 'http://99.12.204.118:3000',
         changeOrigin: true,
         secure: false,
         pathRewrite: {
-          '^/api': '/api'
+          '^/api': ''
         }
       }
     },
@@ -54,7 +57,7 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false,
+    cssSourceMap: false
   },
 
   build: {

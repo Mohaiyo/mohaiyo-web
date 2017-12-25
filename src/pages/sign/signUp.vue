@@ -12,19 +12,19 @@
         <form class="new_user" @submit.prevent="submit">
           <div class="input-wrap">
             <i class="input-icon ic-user"></i>
-            <input type="text" class="radius-top" placeholder="起个帅点的昵称" maxlength="20">
+            <input type="text" class="radius-top" placeholder="起个帅点的昵称" maxlength="20" v-model="username">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-email"></i>
-            <input type="text" placeholder="邮箱是必须的" maxlength="40">
+            <input type="text" placeholder="邮箱是必须的" maxlength="40" v-model="email">
           </div>
           <div class="input-wrap no-radius">
             <i class="input-icon ic-psw"></i>
-            <input type="password" placeholder="你要输的密码" maxlength="20">
+            <input type="password" placeholder="你要输的密码" maxlength="20" v-model="password">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
-            <input type="password" class="radius-bottom" placeholder="密码是否一致" maxlength="20">
+            <input type="password" class="radius-bottom" placeholder="密码是否一致" maxlength="20" v-model="agPassword">
           </div>
           <input type="submit" value="点我注册" class="submit-btn">
         </form>
@@ -46,12 +46,25 @@ export default {
   name: 'sign',
   data () {
     return {
-      msg: 'template'
+      username: '',
+      email: '',
+      password: '',
+      agPassword: ''
     }
   },
   methods: {
     submit () {
-      console.log('注册')
+      if (this.password !== this.agPassword) {
+        alert('两次输入的密码不一致！')
+      }
+      let params = {
+        username: this.username,
+        email: this.email,
+        password: this.password
+      }
+      this.$axios.post('api/signup', params).then(res => {
+        console.log(res)
+      })
     }
   }
 }
