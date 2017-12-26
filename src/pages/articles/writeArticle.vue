@@ -44,7 +44,7 @@ export default {
             [{ 'color': [] }, { 'background': [] }],
             [{ 'align': [] }],
             ['clean'],
-            ['link', 'image', 'formula']
+            ['link', 'image']
           ],
           history: {
             delay: 1000,
@@ -88,13 +88,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .container{
-  height: 350px;
+  height: 550px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   .submit{
-    // padding-top: 80px;
+    padding-top: 15px;
     input{
       display: inline-block;
       text-decoration: none;
@@ -116,34 +116,14 @@ export default {
       // margin:80px 20px 0;
     }
   }
-}
-.quill-editor,.quill-code {
+  .quill-editor,.quill-code {
     width: 100%;
-    height: 300px;
-    padding: 0 0 80px;
-    // float: left;
-  }
-  .quill-code {
-    height: auto;
-    border: none;
-    > .title {
-      border: 1px solid #ccc;
-      border-left: none;
-      height: 3em;
-      line-height: 3em;
-      text-indent: 1rem;
-      font-weight: bold;
-    }
-    > code {
-      width: 100%;
-      margin: 0;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      border-top: none;
-      border-left: none;
-      border-radius: 0;
-      height: 30rem;
-      overflow-y: auto;
+    height: 76%;
+    margin-bottom: 65px;
+    .ql-container{
+      height: 80% !important;
     }
   }
+}
+
 </style>

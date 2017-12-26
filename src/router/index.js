@@ -31,7 +31,7 @@ export default new Router({
       children: [
         { path: '', redirect: 'index' },
         { path: 'index', component: Index, alias: '/a', name: 'index' },
-        { path: 'arcticle/:id', component: Article, name: 'article' },
+        { path: 'article/:arcticlId', component: Article, name: 'articlePage' },
         { path: 'newArcticle', component: NewArticle, name: 'newArticle' }
       ]
     }
