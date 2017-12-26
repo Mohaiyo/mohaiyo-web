@@ -1,6 +1,6 @@
 <template>
   <div class="foot-container">
-    底部
+    还没想好写什么
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   .foot-container{
     margin:0px auto;
     padding-top:20px;
+    text-align: left;
   }
   @media (min-width:320px) and (max-width:767px){
     .foot-container{

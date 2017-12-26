@@ -1,0 +1,149 @@
+<template>
+  <div class="container">
+    <quill-editor v-model="content"
+                  ref="myQuillEditor"
+                  :options="editorOption">
+    </quill-editor>
+    <div class="submit btn">
+      <input type="button" value="取消">
+      <input type="button" value="发布文章">
+    </div>
+  </div>
+</template>
+
+<script>
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+// import 'quill/dist/quill.bubble.css'
+
+import { quillEditor, Quill } from 'vue-quill-editor'
+import { ImageDrop } from 'quill-image-drop-module'
+import ImageResize from 'quill-image-resize-module'
+Quill.register('modules/imageDrop', ImageDrop)
+Quill.register('modules/imageResize', ImageResize)
+
+export default {
+  name: 'arcticle',
+  data () {
+    return {
+      content: '',
+      editorOption: {
+        // debug: 'info',
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],
+            [{ 'indent': '-1' }, { 'indent': '+1' }],
+            [{ 'direction': 'rtl' }],
+            [{ 'size': ['small', false, 'large', 'huge'] }],
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'font': [] }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'align': [] }],
+            ['clean'],
+            ['link', 'image', 'formula']
+          ],
+          history: {
+            delay: 1000,
+            maxStack: 50,
+            userOnly: false
+          },
+          imageDrop: true,
+          imageResize: {
+            displayStyles: {
+              backgroundColor: 'black',
+              border: 'none',
+              color: 'white'
+            },
+            modules: [ 'Resize', 'DisplaySize', 'Toolbar' ]
+          }
+        },
+        placeholder: '请输入文章内容',
+        theme: 'snow'
+      }
+    }
+  },
+  methods: {
+    onEditorChange ({ quill, html, text }) {
+      this.content = html
+    }
+  },
+  computed: {
+    editor () {
+      return this.$refs.myQuillEditor.quill
+    }
+  },
+  mounted () {
+    // console.log('this is current quill instance object', this.editor)
+  },
+  components: {
+    quillEditor
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+.container{
+  height: 350px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  .submit{
+    // padding-top: 80px;
+    input{
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border-radius: 4px;
+      transition: all .2s ease-in-out;
+      background-color: #007ac9;
+      border: 2px solid #007ac9;
+      color: #fff;
+      padding: 9.6px 19.2px;
+      font-size: 10px;
+      // margin:80px 20px 0;
+    }
+  }
+}
+.quill-editor,.quill-code {
+    width: 100%;
+    height: 300px;
+    padding: 0 0 80px;
+    // float: left;
+  }
+  .quill-code {
+    height: auto;
+    border: none;
+    > .title {
+      border: 1px solid #ccc;
+      border-left: none;
+      height: 3em;
+      line-height: 3em;
+      text-indent: 1rem;
+      font-weight: bold;
+    }
+    > code {
+      width: 100%;
+      margin: 0;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-top: none;
+      border-left: none;
+      border-radius: 0;
+      height: 30rem;
+      overflow-y: auto;
+    }
+  }
+</style>

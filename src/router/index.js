@@ -4,7 +4,8 @@ const Home = r => require.ensure([], () => r(require('@/pages/index.vue')), 'hom
 const Index = r => require.ensure([], () => r(require('@/pages/home/home.vue')), 'home')
 const SignIn = r => require.ensure([], () => r(require('@/pages/sign/signIn.vue')), 'sign')
 const SignUp = r => require.ensure([], () => r(require('@/pages/sign/signUp.vue')), 'sign')
-
+const Article = r => require.ensure([], () => r(require('@/pages/articles/article.vue')), 'articles')
+const NewArticle = r => require.ensure([], () => r(require('@/pages/articles/writeArticle.vue')), 'articles')
 Vue.use(Router)
 
 export default new Router({
@@ -29,7 +30,9 @@ export default new Router({
       component: Home,
       children: [
         { path: '', redirect: 'index' },
-        { path: 'index', component: Index, alias: '/a', name: 'index' }
+        { path: 'index', component: Index, alias: '/a', name: 'index' },
+        { path: 'arcticle/:id', component: Article, name: 'article' },
+        { path: 'newArcticle', component: NewArticle, name: 'newArticle' }
       ]
     }
   ]

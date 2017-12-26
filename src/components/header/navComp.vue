@@ -42,10 +42,10 @@
             </ul>
           </div>
         </div>
-        <a href="" class="write">
+        <router-link to="/home/newArcticle" class="write">
           <i class="icon"></i>
           <span>写文章</span>
-        </a>
+        </router-link>
       </div>
     </div>
   </nav>
