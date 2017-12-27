@@ -1,62 +1,129 @@
 <template>
   <div class="container">
+    <!-- 文章内容 -->
     <section class="article">
       <!-- 标题 -->
       <h1 class="title">26岁，辞职远行</h1>
       <div class="author">
-        <a href="#" class="avatar">
-          <img src="" alt="作者头像">
+        <a href="javascript:;" class="avatar">
+          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="作者头像">
         </a>
         <div class="info">
           <span class="name">上官飞鸿</span>
           <div class="meta">
-            <a class="collection-tag" href="#">日记-书信</a>
-            <a href="http://"> <i class="icon ic-list-read"></i>2302</a>
-            <a href="http://"> <i class="icon ic-list-comments"></i>41</a>
+            <span class="collection-tag">日记-书信</span>
+            <span> <i class="icon ic-list-read"></i>2302</span>
+            <span> <i class="icon ic-list-comments"></i>41</span>
             <span> <i class="icon ic-list-like"></i>63</span>
+            <span class="publish-time">2017.12.26 18:35:23</span>
           </div>
         </div>
       </div>
       <div class="article-detail">
-        01
-
-刚上大学的时候，班里有个挺文气的男生。他性格有些内向，和男生一起玩还算得上开朗，一和女生呆在一起就很害羞，甚至和女孩子说一两句话脸就涨得通红。
-
-有一次，图书馆举办书展，班上有个女同学凑巧碰见了他，便随口约他一起去逛书展。他心里一热，乐呵呵地陪着对方去了。其实两个人也没说几句话，到了那里也只是各看各的书而已。这个哥们儿回来之后，表情就不一样了，一脸的甜蜜和窃喜。很显然，他动心了，喜欢上了那个女同学。
-
-然后，过了几天，他鼓起勇气给那个女同学发了一条经过精心编辑的短信表白爱慕之心。那条表白短信用词考究，标点规范，文采斐然，深情款款，可以说耗尽了他的才情。
-
-发完短信，他又激动又忐忑，简直坐立不安。过了十分钟，他收到了对方的回信:“谢谢你的一片深情。你很好，可是我们不合适。”
-
-他看着短信，就像一朵被霜打了的花朵，无精打采。我们问他:“接下来有什么打算吗？”他坚定地说:“我不会放弃的。我相信这是她给我的考验，我会继续追她。”“那你打算继续追多久呢？”我们问他。他眼睛里闪烁着光芒:“二十年！”我们非常惊讶:“你确定？”他点了点头，一副不撞南墙不回头的架势。我们见状，不好再说什么，只是拍了拍他的肩膀。
-
-半个月以后，他告诉我们，他第二次向那个女同学表白，又被拒绝了。一个月以后，他的第三次表白还是被拒绝了。对方甚至不愿意再跟他说话，即使碰见也把头扭向一边。如果几个同学一起玩，那个女同学的目光基本上不看他。这让他越发觉得痛苦和抓狂。
-
-就这样，一年过去了，我们基本上淡忘了这个事情，仿佛那只是一个趣闻段子。有一次一个舍友过生日，大家谈笑间，不知道谁突然提起了这件事。我们问他后来怎么样了，他笑了笑:“我放弃了，没意思。”我调侃地说:“我记得你说过要追她二十年呢？这好像还差十九年呢！”他尴尬地笑了笑说:“那都是当时一时冲动才说的话。不喜欢就是不喜欢，追的时间再久、表白的次数再多也没有用的。或许是我太傻了吧。从她第一次拒绝我，我就应该明白，她其实根本就不喜欢我。”
-
-一席话落，全场沉默。
-
-02
-
-还记得一度很火爆的电影《从你的全世界路过》。影片中，陈末（邓超饰）和幺鸡（张天爱饰）委婉波折的爱情让人感动，至少最后两个人深情相拥。可影片中令我印象最深的，却是猪头（岳云鹏饰）和燕子（柳岩饰）的那段虐心之恋。
-
-影片中，猪头和燕子是大学同学。猪头上大学期间就非常喜欢燕子，对她关心备至，体贴入微。有一次，燕子被舍友冤枉偷东西，猪头挺身而出保护她，男子汉气概显露无疑。大学毕业后，猪头还是一如既往地喜欢燕子，热切地追求对方。
-
-当猪头备好了一切，请了全部的亲朋好友来参加燕子的生日晚会，准备当场向燕子求婚的时候，燕子却淡淡地说了一句:“谢谢你，但是我们不合适。”燕子转身潇洒地离去，猪头像石化了一样留在原地哭笑不得。燕子坐出租车走了，猪头撕心裂肺地大哭着在后面苦苦挽留，一边追赶一边呼喊着心爱的女孩的名字，追不上了只得跪倒在地上嚎啕大哭……
-
-那一刻，我心酸不已。这种被人无情拒绝的感觉似曾相识，我又何尝不知道猪头心里的痛苦？也许，这世界上最悲哀的事情就是，你准备向心爱的女人求婚，而她却在准备着和你一拍两散。
-
-其实，观众心里都明白。不是猪头对燕子不够好，也不是他的心不够诚恳，而是燕子根本就不喜欢猪头，或者说在燕子的心里，猪头根本配不上她，哪怕对她很好。
-
-你喜欢我，哪怕我从你的全世界路过，终有一天我们也会在世界的尽头相遇；你不喜欢我，无论我怎么样用心对你，终究也只是你的世界里的一个过客。
-
-03
-
-爱情和任何美好的事物一样，来之不易。但是，好的爱情不需要苦苦追求，不需要一次次地受打击，不需要感动全世界却独独委屈你自己。
-
-那个一直拒绝你的女孩子，还是不要追了吧，因为她真的不喜欢你。如果她对你有一点点的喜欢，何必拒绝你一次又一次？如果对方真的在乎你，怎么会忍心抛下你一个人伤心哭泣？
-
-好的爱情，从来都是两情相悦，水到渠成。
+        01刚上大学的时候，班里有个挺文气的男生。他性格有些内向，和男生一起玩还算得上开朗，一和女生呆在一起就很害羞，甚至和女孩子说一两句话脸就涨得通红。
+        一次，图书馆举办书展，班上有个女同学凑巧碰见了他，便随口约他一起去逛书展。他心里一热，乐呵呵地陪着对方去了。其实两个人也没说几句话，到了那里也只是各看各的书而已。这个哥们儿回来之后，表情就不一样了，一脸的甜蜜和窃喜。很显然，他动心了，喜欢上了那个女同学。
+        然后，过了几天，他鼓起勇气给那个女同学发了一条经过精心编辑的短信表白爱慕之心。那条表白短信用词考究，标点规范，文采斐然，深情款款，可以说耗尽了他的才情。
+        发完短信，他又激动又忐忑，简直坐立不安。过了十分钟，他收到了对方的回信:“谢谢你的一片深情。你很好，可是我们不合适。”
+        他看着短信，就像一朵被霜打了的花朵，无精打采。我们问他:“接下来有什么打算吗？”他坚定地说:“我不会放弃的。我相信这是她给我的考验，我会继续追她。”“那你打算继续追多久呢？”我们问他。他眼睛里闪烁着光芒:“二十年！”我们非常惊讶:“你确定？”他点了点头，一副不撞南墙不回头的架势。我们见状，不好再说什么，只是拍了拍他的肩膀。
+        半个月以后，他告诉我们，他 第二次向那个女同学表白，又被拒绝了。一个月以后，他的第三次表白还是被拒绝了。对方甚至不愿意再跟他说话，即使碰见也把头扭向一边。如果几个同学一起玩，那个女同学的目光基本上不看他。这让他越发觉得痛苦和抓狂。
+        就这样，一年过去了，我们基本上淡忘了这个事情，仿佛那只是一个趣闻段子。有一次一个舍友过生日，大家谈笑间，不知道谁突然提起了这件事。我们问他后来怎么样了，他笑了笑:“我放弃了，没意思。”我调侃地说:“我记得你说过要追她二十年呢？这好像还差十九年呢！”他尴尬地笑了笑说:“那都是当时一时冲动才说的话。不喜欢就是不喜欢，追的时间再久、表白的次数再多也没有用的。或许是我太傻了吧。从她第一次拒绝我，我就应该明白，她其实根本就不喜欢我。”
+        一席话落，全场沉默。
+      </div>
+    </section>
+    <!-- 分享点赞 -->
+    <section class="meta-bottom">
+      <div class="like">
+        <div class="btn like-group">
+          <div class="btn-like">
+            <a href="#"><i class="like-icon"></i>喜欢</a>
+          </div>
+          <div class="like-count">
+            <span>520</span>
+          </div>
+        </div>
+      </div>
+      <div class="share">
+        <ul>
+          <li><a class="weibo" target="_blank" href="#"><i class="iconfont ic-weibo"></i></a></li>
+          <li><a class="weixin" target="_blank" href="#"><i class="iconfont ic-wechat"></i></a></li>
+          <li><a class="qq" target="_blank" href="#"><i class="iconfont ic-qq-connect"></i></a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- 评论 -->
+    <section class="comments">
+      <!-- 如果已经登录可以发表评论 -->
+      <div class="new-comments" v-show="false">
+        <a href="#" class="avatar">
+          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+        </a>
+        <div class="sign-container notlogin">
+          <a href="#" class="signin-btn">登录</a><span>后发表评论</span>
+        </div>
+      </div>
+      <!-- 未登录，提示登录才可以发表评论 -->
+      <div class="new-comments">
+        <a href="#" class="avatar">
+          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+        </a>
+        <div class="sign-container haslogin">
+          <textarea placeholder="写下你的评论..."></textarea>
+          <div class="comment-operation">
+            <a href="#" class="cancel">取消</a>
+            <a href="#" class="confirm">发送</a>
+          </div>
+        </div>
+      </div>
+      <!-- 评论列表   -->
+      <div class="comments-list">
+        <ul>
+          <li class="comment-item">
+            <div>
+              <div class="author">
+                <a href="#" class="avatar">
+                  <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+                </a>
+                <div class="info">
+                  <a href="#">徐小多的日常</a>
+                  <div class="meta">
+                    <span class="comment-time">2017.12.27 10:08:00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-wrap">
+                <p class="comment-descr">确实是干货，但是太干了，不会写代码啊</p>
+                <div class="tool-group">
+                  <a href="#" class="comment-like">
+                    <i class="icon-like icon"></i>
+                    <span>8人赞</span>
+                  </a>
+                  <a href="#" class="comment-reply">
+                    <i class="icon-reply icon"></i>
+                    <span>回复</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <ul class="sub-comment-list">
+              <li class="sub-comment">
+                <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>+1</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="icon ic-comment"></i>
+                    <span class="reply">回复</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="comment-item"></li>
+          <li class="comment-item"></li>
+          <li class="comment-item"></li>
+          <li class="comment-item"></li>
+        </ul>
       </div>
     </section>
   </div>
@@ -76,6 +143,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 .container{
+  display: flex;
+  flex-flow: column nowrap;
   .article{
     width: 100%;
     .title{
@@ -115,15 +184,11 @@ export default {
             font-size: 12px;
             font-weight: 400;
             line-height: 20px;
-            a{
-              transition: .1s ease-in;
-              margin-right: 10px;
-              color: #b4b4b4;
-              vertical-align: middle;
-            }
+            margin-top:10px;
             span{
               color: #b4b4b4;
               vertical-align: middle;
+              margin-right: 10px;
             }
             .collection-tag{
               display: inline-block;
@@ -158,6 +223,205 @@ export default {
               background-size: 13px;
             }
           }
+      }
+    }
+    .article-detail{
+      width: 90%;
+      margin:0 auto;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #eee;
+    }
+  }
+  .meta-bottom{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin:0 auto;
+    padding:30px 0 80px;
+    .like{
+      // height: 60px;
+      .like-group{
+        padding: 13px 0 15px;
+        border: 1px solid #ea6f5a;
+        border-radius: 40px;
+        .btn-like{
+          font-size: 19px;
+          display: inline-block;
+          cursor: pointer;
+          a{
+            color: #ea6f5a;
+            padding: 15px 15px 15px 30px;
+            i{
+              display: inline-block;
+              height: 20px;
+              width: 20px;
+              background: url('../../assets/img/like.png') no-repeat 0 3px;
+              background-size: 20px;
+              margin-right: 10px;
+            }
+          }
+        }
+        .like-count{
+          display: inline-block;
+          font-size: 18px;
+          border-left: 1px solid rgba(236,97,73,.4);
+          span{
+            color: #ea6f5a;
+            padding: 15px 30px 15px 17px;
+          }
+
+        }
+      }
+    }
+    .share{
+      ul{
+        // margin-bottom: 30px;
+        li{
+          margin: 0 3px;
+          display: inline-block;
+          a{
+            width: 50px;
+            height: 50px;
+            background-color: hsla(0,0%,71%,.2);
+            border-radius: 50%;
+            line-height: 50px;
+            display: block;
+            i{
+              display: inline-block;
+              width: 50px;
+              height: 50px;
+            }
+            .ic-weibo{
+              background: url('../../assets/img/weibo.png') no-repeat 10px 10px ;
+              background-size: 30px 30px;
+            }
+            .ic-wechat{
+              background: url('../../assets/img/weixin.png') no-repeat 12px 12px ;
+              background-size: 26px 26px;
+            }
+            .ic-qq-connect{
+              background: url('../../assets/img/qq.png') no-repeat 14px 14px ;
+              background-size: 22px 22px;
+            }
+
+          }
+          .weibo{
+            background-color: #e05244;
+          }
+          .weixin{
+            background-color: #00bb29;
+          }
+          .qq{
+            background-color: #498ad5;
+          }
+        }
+      }
+    }
+  }
+  .new-comments{
+    width: 90%;
+    margin:0 auto;
+    display: flex;
+    flex-flow:row nowrap;
+    .avatar{
+      margin:0 15px;
+      width: 38px;
+      height: 38px;
+      vertical-align: middle;
+      display: inline-block;
+      img{
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+      }
+    }
+    .notlogin{
+      text-align: center;
+      padding: 10px 15px;
+      width: 100%;
+      height: 80px;
+      font-size: 13px;
+      border: 1px solid #dcdcdc;
+      border-radius: 4px;
+      background-color: hsla(0,0%,71%,.1);
+      resize: none;
+      display: inline-block;
+      vertical-align: top;
+      outline-style: none;
+      a{
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        border-radius: 4px;
+        user-select: none;
+      }
+      .signin-btn{
+        width: 78px;
+        margin: 11px 10px 0 0;
+        padding: 7px 18px;
+        font-size: 16px;
+        border: none;
+        border-radius: 20px;
+        color: #fff!important;
+        background-color: #3194d0;
+        outline: none;
+      }
+      span{
+        vertical-align: -7px;
+      }
+    }
+    .haslogin{
+      width: 100%;
+      textarea{
+        padding: 10px 15px;
+        width: 100%;
+        height: 80px;
+        font-size: 13px;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        background-color: hsla(0,0%,71%,.1);
+        resize: none;
+        display: inline-block;
+        vertical-align: top;
+        outline-style: none;
+      }
+      .comment-operation{
+        height: 50px;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content:flex-end;
+        align-items: center;
+        .cancel{
+          padding: 8px 18px;
+          font-size: 16px;
+          color: #969696;
+        }
+        .confirm{
+          display: inline-block;
+          width: 78px;
+          text-align: center;
+          padding: 8px 18px;
+          font-size: 16px;
+          border: none;
+          border-radius: 20px;
+          color: #fff!important;
+          background-color: #42c02e;
+          cursor: pointer;
+        }
       }
     }
   }
