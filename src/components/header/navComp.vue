@@ -71,6 +71,9 @@ export default {
     },
     navHandler (i) {
       this.menuIndex = i
+    },
+    getUserInfo () {
+      console.log('如何确定用户已经登录')
     }
   }
 }
