@@ -15,7 +15,7 @@ module.exports = {
       // 就是说配置中前端的 localhost:8090/api/poosts ==  http://99.12.204.118:3000/posts
       // localhost:8090/api/signin/captchas ==  http://99.12.204.118:3000/signin/captchas
       '/api': {
-        target: 'http://99.12.204.118:3000',
+        target: 'http://99.12.204.139:3000',
         changeOrigin: true,
         secure: false,
         pathRewrite: {

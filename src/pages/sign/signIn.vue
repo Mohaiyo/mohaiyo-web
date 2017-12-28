@@ -12,15 +12,15 @@
         <form class="new_user" @submit.prevent="submit">
           <div class="input-wrap">
             <i class="input-icon ic-user"></i>
-            <input type="text" class="radius-top" placeholder="邮箱号或者昵称" maxlength="20">
+            <input type="text" class="radius-top" placeholder="用户名" maxlength="20" v-model="username">
           </div>
           <div class="input-wrap no-radius">
             <i class="input-icon ic-psw"></i>
-            <input type="password" placeholder="你要输的密码" maxlength="20">
+            <input type="password" placeholder="你要输的密码" maxlength="20" v-model="password">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
-            <input type="text" class="radius-bottom" placeholder="验证码" maxlength="4">
+            <input type="text" class="radius-bottom" placeholder="验证码" maxlength="4" v-model="cap_code">
             <span class="sms-code" @click="getCaptchas">
               <img :src="smsCode" alt="验证码">
             </span>
@@ -45,26 +45,39 @@ export default {
   name: 'sign',
   data () {
     return {
-      msg: 'template',
-      smsCode: ''
+      smsCode: '',
+      cap_code: '',
+      username: '',
+      password: ''
     }
   },
   mounted () {
     this.getCaptchas()
-    this.getPosts()
   },
   methods: {
     submit () {
-      console.log('注册')
+      this.signIn()
     },
     getCaptchas () {
       this.$axios.get('/api/signin/captchas', {}).then(res => {
         this.smsCode = res.data.code
       })
     },
-    getPosts () {
-      this.$axios.get('/api/posts', {}).then(res => {
-        console.log(res)
+    signIn () {
+      let params = {
+        username: this.username,
+        password: this.password,
+        cap_code: this.cap_code
+      }
+      this.$axios.post('/api/signin', params).then(res => {
+        let data = res.data
+        if (data.status === 200) {
+          this.$router.push({ path: '/home/index', params: {} })
+        } else {
+          // 刷新验证码
+          this.getCaptchas()
+          alert(data.message)
+        }
       })
     }
   }

@@ -578,6 +578,7 @@ export default {
   .side-bar{
     width: 29.16667%;
     margin-left: 4.16667%;
+    padding-top:10px;
     .board-title{
       text-align: center;
       font-weight: 600;
@@ -587,6 +588,7 @@ export default {
       min-height: 228px;
       background-color: #f5f5f5;
       border-radius: 10px;
+      animation:moveUp .5s linear;
       .topic-item{
         display: flex;
         justify-content: flex-start;
@@ -609,9 +611,10 @@ export default {
         }
       }
       .topic-item:hover{
-        border: 1px solid rgba(24, 124, 183, 0.7);
+        // border: 1px solid rgba(5, 161, 252, 0.7);
         border-radius: 10px;
-        background-color: #fff;
+        // background-color: rgba(0, 162, 255, 0.7);
+        animation: moveLeft .8s ease-out 0.1s;
       }
       .topic-descr{
         padding: 0px 30px;
@@ -636,6 +639,31 @@ export default {
         background-size: 20px;
       }
     }
+  }
+  // 侧边栏动画
+  @keyframes moveUp {
+    0% {
+      transform: translate(0,150px);
+      background: rgba(255, 255, 255,0.5);
+    }
+    100% {
+      transform: translate(0,0);
+      background: rgba(255, 255, 255,1);
+      }
+  }
+  @keyframes moveLeft {
+    0% {
+      transform: translate(0,0);
+      background: rgba(255, 255, 255,0.1);
+    }
+    50% {
+      transform: translate(100px,0);
+      background: rgba(255, 255, 255, 0.938);
+    }
+    100% {
+      transform: translate(0,0);
+      background: #f5f5f5;
+      }
   }
 
 </style>

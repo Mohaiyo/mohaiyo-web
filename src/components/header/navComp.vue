@@ -157,6 +157,9 @@ export default {
                   line-height: 35px;
                   border-bottom: 1px solid #f0f0f0;
                 }
+                .sub-menu-item:hover{
+                  color: #ea6f5a;
+                }
                 .active{
                   color:#ea6f5a;
                 }
@@ -165,6 +168,9 @@ export default {
             .active{
               color:#ea6f5a;
             }
+          }
+          .menu-item:hover{
+            color: #ea6f5a;
           }
         }
         .search-form{
@@ -175,12 +181,16 @@ export default {
             outline: none;
             margin:0 0 0 15px;
             padding: 0 40px 0 20px;
-            width: 180px;
+            width: 150px;
             height: 38px;
             font-size: 14px;
             border: 1px solid #eee;
             border-radius: 40px;
             background: #eee;
+            transition: width 0.5s;
+          }
+          .search:focus{
+            width: 200px;
           }
           .icon{
             display: inline-block;
@@ -208,6 +218,9 @@ export default {
           line-height: 40px;
           color: #969696;
         }
+        .sign-in:hover{
+          color: #ea6f5a;
+        }
         .sign-up{
           line-height: 38px;
           border: 1px solid rgba(236,97,73,.7);
@@ -218,6 +231,11 @@ export default {
           width: 80px;
           height: 38px;
           margin:0 5px 0 15px;
+          transition: all 0.3s;
+        }
+        .sign-up:hover{
+          background-color: rgba(234, 111, 90, 0.8);
+          color: #fff;
         }
         .write{
           display: flex;
@@ -230,6 +248,7 @@ export default {
           line-height: 40px;
           border-radius:20px;
           margin:0 15px;
+          transition: opacity 0.3s;
           .icon{
             display: inline-block;
             width: 20px;
@@ -241,6 +260,9 @@ export default {
             color: #fff;
             padding:0 5px;
           }
+        }
+        .write:hover{
+          background-color: rgba(234, 111, 90,0.8);
         }
         .user{
           position: relative;
@@ -272,10 +294,11 @@ export default {
       .drowdown-menu{
         display: none;
         position: absolute;
+        z-index: 2;
         left: 0px;
         margin-top: 0;
         border-radius: 0 0 4px 4px;
-        border-color: transparent;
+        border-color: #fff;
         box-shadow: 0 2px 8px rgba(0,0,0,.1);
         filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
         -webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
@@ -284,6 +307,7 @@ export default {
           padding: 10px 20px;
           line-height: 30px;
           text-align: left;
+          background: #fff;
           .drowdown-icon{
             display: inline-block;
             vertical-align: top;
