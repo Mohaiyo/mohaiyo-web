@@ -38,7 +38,7 @@
               <li class="drowdown-list-item"><i class="drowdown-icon home-icon"></i><span>我的主页</span></li>
               <li class="drowdown-list-item"><i class="drowdown-icon collect-icon"></i><span>收藏的文章</span></li>
               <li class="drowdown-list-item"><i class="drowdown-icon like-icon"></i><span>喜欢的文章</span></li>
-              <li class="drowdown-list-item"><i class="drowdown-icon signOut-icon"></i><span>退出</span></li>
+              <li class="drowdown-list-item" @click="signOut"><i class="drowdown-icon signOut-icon"></i><span>退出</span></li>
             </ul>
           </div>
         </div>
@@ -65,6 +65,9 @@ export default {
       menuIndex: 0
     }
   },
+  created () {
+    this.getUserInfo()
+  },
   methods: {
     menuHandler () {
       this.menuShow = !this.menuShow
@@ -73,7 +76,22 @@ export default {
       this.menuIndex = i
     },
     getUserInfo () {
-      console.log('如何确定用户已经登录')
+      this.$axios.get('/api/user/getUserInfo', {}).then(res => {
+        let data = res.data
+        if (data.status === 200) {
+          this.hasSignIn = data.login
+        }
+      })
+    },
+    signOut () {
+      this.$axios.get('/api/user/signout', {}).then(res => {
+        let data = res.data
+        if (data.status === 200) {
+          this.hasSignIn = false
+        } else {
+          alert(data.message)
+        }
+      })
     }
   }
 }

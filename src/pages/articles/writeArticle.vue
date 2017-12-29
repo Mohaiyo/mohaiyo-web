@@ -69,6 +69,16 @@ export default {
   methods: {
     onEditorChange ({ quill, html, text }) {
       this.content = html
+    },
+    checkIfLogin () {
+      this.$axios.get('/api/posts/create', {}).then(res => {
+        let data = res.data
+        if (data.status === 400) {
+          alert(data.message)
+        } else {
+          return true
+        }
+      })
     }
   },
   computed: {
@@ -77,7 +87,7 @@ export default {
     }
   },
   mounted () {
-    // console.log('this is current quill instance object', this.editor)
+    this.checkIfLogin()
   },
   components: {
     quillEditor
