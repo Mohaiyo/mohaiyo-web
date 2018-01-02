@@ -171,6 +171,10 @@
           </li>
         </ul>
       </div>
+      <Alert title="我是普通提示！" :closable="false" show-icon ></Alert>
+      <Alert title="我是警告提示！" type="warning" close-text="我知道了" @close="colseHandler" show-icon></Alert>
+      <Alert title="我是成功提示！" type="success" show-icon description="我是描述性语句！嘻嘻字体库构建成功！果然还是好用啊，哈哈哈哈！"></Alert>
+      <Alert title="我是错误提示！" type="error" show-icon></Alert>
     </section>
     <section class="side-bar">
       <!-- <h3 class="board-title">文章分类</h3> -->
@@ -306,6 +310,7 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Alert from '../../components/common/alert'
 export default {
   name: 'home',
   data () {
@@ -345,7 +350,13 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    Alert
+  },
+  methods: {
+    colseHandler () {
+      alert('听说我就是回调')
+    }
   }
 }
 </script>

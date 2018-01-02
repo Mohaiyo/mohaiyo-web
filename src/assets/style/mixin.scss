@@ -1,6 +1,6 @@
 $blue: #3190e8;
-$bc: #e4e4e4;
-$fc:#fff;
+$bc: #ea6f5a;
+$wc:#fff;
 // 背景图片地址和大小
 @mixin bis($url) {
     background-image: url($url);
@@ -8,6 +8,7 @@ $fc:#fff;
     background-size: 100% 100%;
 }
 
+// 这样定义还不如写原生的
 @mixin borderRadius($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -16,7 +17,7 @@ $fc:#fff;
     border-radius: $radius;
 }
 
-//定位全屏
+// 定位全屏
 @mixin allcover {
     position: absolute;
     top: 0;
@@ -63,7 +64,23 @@ $fc:#fff;
 }
 
 //flex 布局和 子元素 对其方式
-@mixin fj($type: space-between) {
+@mixin fja($justify: center, $align: center) {
     display: flex;
-    justify-content: $type;
+    justify-content: $justify;
+    align-items: $align
+}
+
+// 绝对定位 右上
+
+@mixin absTR($top, $right){
+  position: absolute;
+  top:$top;
+  right: $right;
+}
+
+// 绝对定位 左上
+@mixin absTL($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
 }
