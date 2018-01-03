@@ -2,10 +2,10 @@ $blue: #3190e8;
 $bc: #ea6f5a;
 $wc:#fff;
 // 背景图片地址和大小
-@mixin bis($url) {
+@mixin bis($url,$size) {
     background-image: url($url);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: $size;
 }
 
 // 这样定义还不如写原生的
@@ -83,4 +83,12 @@ $wc:#fff;
   position: absolute;
   top: $top;
   left: $left;
+}
+
+// 单行省略...
+
+@mixin ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

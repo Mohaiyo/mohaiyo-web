@@ -99,6 +99,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
+  @import '../../assets/style/mixin';
   .navbar{
     margin-bottom: 20px;
     border: 1px solid transparent;
@@ -107,9 +108,7 @@ export default {
       max-width: 1440px;
       margin:0 auto;
       height: 56px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      @include fja(flex-start, center);
       flex-flow: row nowrap;
       position: relative;
       @media (min-width:320px) and (max-width:767px){
@@ -128,14 +127,12 @@ export default {
         }
        }
       .nav-menu{
-          display: flex;
+          @include fja(flex-start, center);
           flex:6;
-          align-items: center;
           margin:0 auto;
           padding:0 15px;
         .menu-list{
-          display: flex;
-          justify-content: flex-start;
+          @include fja(flex-start, center);
           @media (min-width:992px) {
             .menu-item{
               cursor: pointer;
@@ -148,7 +145,7 @@ export default {
               display: none;
             }
             .active{
-              color:#ea6f5a;
+              color:$bc;
             }
           }
           @media (min-width:320px) and (max-width:992px) {
@@ -158,17 +155,13 @@ export default {
             .menu-icon{
               display: block;
               cursor: pointer;
-              width: 30px;
-              height: 30px;
+              @include wh(30px, 30px);
               margin: 0 15px;
-              background:url('../../assets/img/menu.png') no-repeat 0 0;
-              background-size: 30px 30px;
+              @include bis('../../assets/img/menu.png',30px);
             }
             .menu-icon{
               .sub-menu{
-                position: absolute;
-                top: 56px;
-                left: 0px;
+                @include absTL(56px, 0px);
                 width: 100vw;
                 text-align: center;
                 background-color:#fff;
@@ -179,31 +172,28 @@ export default {
                   border-bottom: 1px solid #f0f0f0;
                 }
                 .sub-menu-item:hover{
-                  color: #ea6f5a;
+                  color: $bc;
                 }
                 .active{
-                  color:#ea6f5a;
+                  color:$bc;
                 }
               }
             }
             .active{
-              color:#ea6f5a;
+              color:$bc;
             }
           }
           .menu-item:hover{
-            color: #ea6f5a;
+            color: $bc;
           }
         }
         .search-form{
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+          @include fja(flex-start, center);
           .search{
             outline: none;
             margin:0 0 0 15px;
             padding: 0 40px 0 20px;
-            width: 150px;
-            height: 38px;
+            @include wh(150px,38px);
             font-size: 14px;
             border: 1px solid #eee;
             border-radius: 40px;
@@ -215,8 +205,7 @@ export default {
           }
           .icon{
             display: inline-block;
-            width: 32px;
-            height: 32px;
+            @include wh(32px,32px);
             margin-left: -40px;
             background:url('../../assets/img/search.png') no-repeat 0 0;
           }
@@ -225,9 +214,7 @@ export default {
       }
       .log-bar{
         flex:2.5;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        @include fja(flex-start, center);
         font-size: 15px;
         text-align: center;
         flex-flow:row nowrap;
@@ -240,17 +227,16 @@ export default {
           color: #969696;
         }
         .sign-in:hover{
-          color: #ea6f5a;
+          color: $bc;
         }
         .sign-up{
           line-height: 38px;
           border: 1px solid rgba(236,97,73,.7);
           border-radius: 20px;
           display: inline-block;
-          color: #ea6f5a;
+          color: $bc;
           background-color: transparent;
-          width: 80px;
-          height: 38px;
+          @include wh(80px, 38px);
           margin:0 5px 0 15px;
           transition: all 0.3s;
         }
@@ -259,12 +245,9 @@ export default {
           color: #fff;
         }
         .write{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 100px;
-          height: 40px;
-          background-color: #ea6f5a;
+          @include fja(center, center);
+          @include wh(100px, 40px);
+          background-color: $bc;
           vertical-align: top;
           line-height: 40px;
           border-radius:20px;
@@ -272,10 +255,8 @@ export default {
           transition: opacity 0.3s;
           .icon{
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            background:url('../../assets/img/write.png') no-repeat 0 0;
-            background-size: 20px 20px;
+            @include wh(20px, 20px);
+            @include bis('../../assets/img/write.png', 20px);
           }
           span{
             color: #fff;
@@ -292,14 +273,11 @@ export default {
           cursor: pointer;
           .avatar{
             display: inline-block;
-            width: 50px;
-            height: 50px;
+            @include wh(50px, 50px);
           }
           .avatar:before{
             content: "";
-            position: absolute;
-            top: 25px;
-            right: 10px;
+            @include absTR(25px,10px);
             border-left: 5px solid transparent;
             border-right: 5px solid transparent;
             border-top: 6px solid #999;
@@ -332,12 +310,10 @@ export default {
           .drowdown-icon{
             display: inline-block;
             vertical-align: top;
-            width: 30px;
-            height: 30px;
+            @include wh(30px, 30px);
           }
           .home-icon{
-            background:url('../../assets/img/home.png') no-repeat 0 0;
-            background-size: 26px 26px;
+            @include bis('../../assets/img/home.png',26px);
           }
           .collect-icon{
             background:url('../../assets/img/collect.png') no-repeat 3px 5px;

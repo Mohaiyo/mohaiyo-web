@@ -77,6 +77,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
+  @import '../../assets/style/mixin';
   .sign-up{
     width: 400px;
     margin: 0 auto;
@@ -93,28 +94,24 @@ export default {
       font-weight: 400;
       color: #969696;
       .sign{
-        font-size: 18px;
+        @include sc(18px,#969696);
         padding: 10px;
-        color: #969696;
       }
       .active{
         font-weight: 700;
-        color: #ea6f5a;
-        border-bottom: 2px solid #ea6f5a;
+        color: $bc;
+        border-bottom: 2px solid $bc;
       }
     }
     .sign-container{
-      display: flex;
+      @include fja(flex-start, flex-start);
       flex-flow: column nowrap;
-      justify-content: flex-start;
-      align-items: flex-start;
       .input-wrap{
         position: relative;
         width: 300px;
         input{
           outline: none;
-          width: 100%;
-          height: 50px;
+          @include wh(100%, 50px);
           margin-bottom: 0;
           padding: 4px 12px 4px 35px;
           border: 1px solid #c8c8c8;
@@ -132,13 +129,9 @@ export default {
           border-radius: 0 0 4px 4px;
         }
         .input-icon{
-          position: absolute;
-          width: 18px;
-          height: 25px;
-          top: 14px;
-          left: 10px;
-          font-size: 18px;
-          color: #969696;
+          @include absTL(14px, 10px);
+          @include wh(18px, 25px);
+          @include sc(18px, #969696);
         }
         .ic-user{
           background: url('../../assets/img/avatar_sign.png') no-repeat -4px 0px;
@@ -160,10 +153,9 @@ export default {
       .submit-btn{
         width: 100%;
         padding: 9px 18px;
-        font-size: 18px;
+        @include sc(18px, #fff);
         border: none;
         border-radius: 25px;
-        color: #fff;
         background: #42c02e;
         cursor: pointer;
         outline: none;
@@ -178,8 +170,7 @@ export default {
           width: 300px;
           position: relative;
           margin: 0 0 20px;
-          font-size: 14px;
-          color: #b5b5b5;
+          @include sc(14px, #b5b5b5);
         }
         h6:after,h6:before {
           content: "";
@@ -201,16 +192,14 @@ export default {
             margin: 0 3px;
             display: inline-block;
             a{
-              width: 50px;
-              height: 50px;
+              @include wh(50px, 50px);
               background-color: hsla(0,0%,71%,.2);
               border-radius: 50%;
               line-height: 50px;
               display: block;
               i{
                 display: inline-block;
-                width: 50px;
-                height: 50px;
+                @include wh(50px, 50px);
               }
               .ic-weibo{
                 background: url('../../assets/img/weibo.png') no-repeat 10px 10px ;

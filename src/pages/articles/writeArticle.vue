@@ -97,12 +97,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import '../../assets/style/mixin';
 .container{
   height: 550px;
-  display: flex;
+  @include fja(flex-start, center);
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
   .submit{
     padding-top: 15px;
     input{

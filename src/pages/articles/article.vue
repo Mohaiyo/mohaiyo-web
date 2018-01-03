@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="article-detail">
+      <div class="article-detail" v-html="detail">
         01刚上大学的时候，班里有个挺文气的男生。他性格有些内向，和男生一起玩还算得上开朗，一和女生呆在一起就很害羞，甚至和女孩子说一两句话脸就涨得通红。
         一次，图书馆举办书展，班上有个女同学凑巧碰见了他，便随口约他一起去逛书展。他心里一热，乐呵呵地陪着对方去了。其实两个人也没说几句话，到了那里也只是各看各的书而已。这个哥们儿回来之后，表情就不一样了，一脸的甜蜜和窃喜。很显然，他动心了，喜欢上了那个女同学。
         然后，过了几天，他鼓起勇气给那个女同学发了一条经过精心编辑的短信表白爱慕之心。那条表白短信用词考究，标点规范，文采斐然，深情款款，可以说耗尽了他的才情。
@@ -134,7 +134,8 @@ export default {
   name: 'articlePage',
   data () {
     return {
-      msg: 'template'
+      msg: 'template',
+      detail: ''
     }
   }
 }
@@ -142,13 +143,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
+@import '../../assets/style/mixin';
 .container{
   display: flex;
   flex-flow: column nowrap;
   .article{
     width: 100%;
     .title{
-      word-break: break-word!important;
+      word-break: break-word !important;
       word-break: break-all;
       margin: 20px 0 0;
       font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
@@ -159,13 +161,11 @@ export default {
     .author{
       margin: 30px 0 40px;
       .avatar{
-        width: 48px;
-        height: 48px;
+        @include wh(48px,48px);
         vertical-align: middle;
         display: inline-block;
         img{
-          width: 100%;
-          height: 100%;
+          @include wh(100%,100%);
           border: 1px solid #ddd;
           border-radius: 50%;
         }
@@ -181,9 +181,8 @@ export default {
           }
           .meta{
             padding-right: 0!important;
-            font-size: 12px;
+            @include font(12px,20px);
             font-weight: 400;
-            line-height: 20px;
             margin-top:10px;
             span{
               color: #b4b4b4;
@@ -195,19 +194,16 @@ export default {
               padding: 3px 6px;
               margin-top: -1px;
               max-width: 200px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
+              @include ellipsis;
               line-height: 1;
               vertical-align: middle;
-              color: #ea6f5a!important;
+              color: $bc !important;
               border: 1px solid rgba(236,97,73,.7);
               border-radius: 3px;
             }
             .icon{
               display: inline-block;
-              width: 20px;
-              height: 13px;
+              @include wh(20px, 13px);
               vertical-align: middle;
             }
             .ic-list-read{
@@ -215,12 +211,10 @@ export default {
               background-size: 15px;
             }
             .ic-list-comments{
-              background: url('../../assets/img/comment.png') no-repeat 0 0 ;
-              background-size: 13px;
+              @include bis('../../assets/img/comment.png',13px);
             }
             .ic-list-like{
-              background: url('../../assets/img/like_icon.png') no-repeat 0 0 ;
-              background-size: 13px;
+              @include bis('../../assets/img/like_icon.png',13px);
             }
           }
       }
@@ -233,10 +227,8 @@ export default {
     }
   }
   .meta-bottom{
-    display: flex;
+    @include fja(space-between, center);
     flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
     width: 90%;
     margin:0 auto;
     padding:30px 0 80px;
@@ -244,19 +236,18 @@ export default {
       // height: 60px;
       .like-group{
         padding: 13px 0 15px;
-        border: 1px solid #ea6f5a;
+        border: 1px solid $bc ;
         border-radius: 40px;
         .btn-like{
           font-size: 19px;
           display: inline-block;
           cursor: pointer;
           a{
-            color: #ea6f5a;
+            color: $bc ;
             padding: 15px 15px 15px 30px;
             i{
               display: inline-block;
-              height: 20px;
-              width: 20px;
+              @include wh(20px, 20px);
               background: url('../../assets/img/like.png') no-repeat 0 3px;
               background-size: 20px;
               margin-right: 10px;
@@ -268,7 +259,7 @@ export default {
           font-size: 18px;
           border-left: 1px solid rgba(236,97,73,.4);
           span{
-            color: #ea6f5a;
+            color: $bc ;
             padding: 15px 30px 15px 17px;
           }
 
@@ -282,16 +273,14 @@ export default {
           margin: 0 3px;
           display: inline-block;
           a{
-            width: 50px;
-            height: 50px;
+            @include wh(50px, 50px);
             background-color: hsla(0,0%,71%,.2);
             border-radius: 50%;
             line-height: 50px;
             display: block;
             i{
               display: inline-block;
-              width: 50px;
-              height: 50px;
+              @include wh(50px, 50px);
             }
             .ic-weibo{
               background: url('../../assets/img/weibo.png') no-repeat 10px 10px ;
@@ -327,13 +316,11 @@ export default {
     flex-flow:row nowrap;
     .avatar{
       margin:0 15px;
-      width: 38px;
-      height: 38px;
+      @include wh(38px, 38px);
       vertical-align: middle;
       display: inline-block;
       img{
-        width: 100%;
-        height: 100%;
+        @include wh(100%, 100%);
         border: 1px solid #ddd;
         border-radius: 50%;
       }
@@ -341,8 +328,7 @@ export default {
     .notlogin{
       text-align: center;
       padding: 10px 15px;
-      width: 100%;
-      height: 80px;
+      @include wh(100%, 80px);
       font-size: 13px;
       border: 1px solid #dcdcdc;
       border-radius: 4px;
@@ -375,7 +361,7 @@ export default {
         font-size: 16px;
         border: none;
         border-radius: 20px;
-        color: #fff!important;
+        color: #fff !important;
         background-color: #3194d0;
         outline: none;
       }
@@ -387,8 +373,7 @@ export default {
       width: 100%;
       textarea{
         padding: 10px 15px;
-        width: 100%;
-        height: 80px;
+        @include wh(100%, 80px);
         font-size: 13px;
         border: 1px solid #dcdcdc;
         border-radius: 4px;
@@ -399,16 +384,12 @@ export default {
         outline-style: none;
       }
       .comment-operation{
-        height: 50px;
-        width: 100%;
-        display: flex;
+        @include wh(100%, 50px);
+        @include fja(flex-end, center);
         flex-flow: row nowrap;
-        justify-content:flex-end;
-        align-items: center;
         .cancel{
           padding: 8px 18px;
-          font-size: 16px;
-          color: #969696;
+          @include sc(16px,#969696);
         }
         .confirm{
           display: inline-block;
@@ -418,7 +399,7 @@ export default {
           font-size: 16px;
           border: none;
           border-radius: 20px;
-          color: #fff!important;
+          color: #fff !important;
           background-color: #42c02e;
           cursor: pointer;
         }

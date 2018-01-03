@@ -363,6 +363,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
+  @import '../../assets/style/mixin';
   @media (min-width:320px) and (max-width:767px){
     .container{
       width:100%;
@@ -378,8 +379,7 @@ export default {
             .wrap-img{
               bottom: 40px;
               margin-top: -58px;
-              width: 125px;
-              height: 110px;
+              @include wh(125px,110px);
             }
             .content{
               padding-right: 135px;
@@ -406,8 +406,7 @@ export default {
             .wrap-img{
               bottom: 40px;
               margin-top: -58px;
-              width: 125px;
-              height: 110px;
+              @include wh(125px,110px);
             }
             .content{
               padding-right: 135px;
@@ -433,8 +432,7 @@ export default {
             .wrap-img{
               top: 50%;
               margin-top: -68px;
-              width: 150px;
-              height: 120px;
+              @include wh(150px,120px);
             }
             .content{
               padding-right: 160px;
@@ -484,8 +482,7 @@ export default {
           position: absolute;
           right:0px;
           img{
-            width: 100%;
-            height: 100%;
+            @include wh(100%,100%);
             border-radius: 4px;
             border: 1px solid #f0f0f0;
           }
@@ -497,13 +494,11 @@ export default {
             .avatar{
               display: inline-block;
               vertical-align: middle;
-              width: 32px;
-              height: 32px;
+              @include wh(32px,32px);
               cursor: pointer;
               margin: 0 5px 0 0;
               img{
-                width: 100%;
-                height: 100%;
+                @include wh(100%,100%);
                 border: 1px solid #ddd;
                 border-radius: 50%;
               }
@@ -525,20 +520,17 @@ export default {
           }
           .title{
             margin: -7px 0 4px;
-            font-size: 18px;
+            @include font(18px,27px);
             font-weight: 700;
-            line-height: 1.5;
           }
           .abstract{
             margin: 0 0 8px;
-            font-size: 13px;
-            line-height: 24px;
+            @include font(13px,24px);
           }
           .meta{
-            padding-right: 0!important;
-            font-size: 12px;
+            padding-right: 0 !important;
+            @include font(12px,20px);
             font-weight: 400;
-            line-height: 20px;
             a{
               transition: .1s ease-in;
               margin-right: 10px;
@@ -554,19 +546,16 @@ export default {
               padding: 3px 6px;
               margin-top: -1px;
               max-width: 200px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
+              @include ellipsis;
               line-height: 1;
               vertical-align: middle;
-              color: #ea6f5a!important;
+              color: $bc !important;
               border: 1px solid rgba(236,97,73,.7);
               border-radius: 3px;
             }
             .icon{
               display: inline-block;
-              width: 20px;
-              height: 13px;
+              @include wh(20px, 13px);
               vertical-align: middle;
             }
             .ic-list-read{
@@ -601,9 +590,7 @@ export default {
       border-radius: 10px;
       animation:moveUp .5s linear;
       .topic-item{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        @include fja(flex-start,center );
         flex-flow: row nowrap;
         position: relative;
         width: 100%;
@@ -616,8 +603,7 @@ export default {
           padding-left: 20px;
           .avatar-image{
             vertical-align: top;
-            width: 30px;
-            height: 30px;
+            @include wh(30px, 30px)
           }
         }
       }
@@ -630,24 +616,19 @@ export default {
       .topic-descr{
         padding: 0px 30px;
         .topic-title{
-          font-size: 16px;
-          color: #3e4545;
+          @include sc(16px, #3e4545);
           transition: all .2s ease;
           font-weight: bold;
           line-height: 1.6;
         }
         .topic-meta{
-          font-size: 14px;
-          line-height: 1.5;
+          @include font(14px, 21px);
         }
       }
       .icon-arrow-right{
-        position: absolute;
-        right: 5px;
-        width: 20px;
-        height: 20px;
-        background: url(../../assets/img/arrow_down.png) no-repeat 0 0;
-        background-size: 20px;
+        @include absTR(12px,5px);
+        @include wh(20px,20px);
+        @include bis('../../assets/img/arrow_down.png',20px);
       }
     }
   }
