@@ -74,7 +74,10 @@ export default {
       this.$axios.get('/api/posts/create', {}).then(res => {
         let data = res.data
         if (data.status === 400) {
-          alert(data.message)
+          this.$message({
+            type: 'warning',
+            message: data.message
+          })
         } else {
           return true
         }

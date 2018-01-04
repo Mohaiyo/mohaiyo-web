@@ -23,9 +23,9 @@
 
 <script type="text/bable">
   const TYPE_CLASSES_MAP = {
-    'success': 'icon-checked',
+    'success': 'icon-success1',
     'warning': 'icon-warn',
-    'error': 'icon-close'
+    'error': 'icon-error'
   }
   export default{
     name: 'Alert',
@@ -76,7 +76,7 @@
       },
 
       iconClass () {
-        return TYPE_CLASSES_MAP[ this.type ] || 'icon-info-block'
+        return TYPE_CLASSES_MAP[ this.type ] || 'icon-info'
       },
 
       isBigIcon () {

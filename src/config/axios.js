@@ -5,60 +5,50 @@
 // import { Toast,Indicator } from 'mint-ui'
 import axios from 'axios'
 import qs from 'qs'
+import NProgress from 'nprogress'
+import Message from '@/components/common/message/index.js'
 
 const baseURL = '/'
 // 请求头配置
 axios.interceptors.request.use(config => {
-    // 判断localStorage中是否存在api_token
-    // if (localStorage.getItem('api_token')) {
-    //     //  存在将api_token写入 request header
-    //     config.headers.apiToken = `${localStorage.getItem('api_token')}`;
-    // }
-    // Indicator.open({
-    //     text: '加载中...',
-    //     spinnerType: 'fading-circle'
-    // });
+  // 判断localStorage中是否存在api_token
+  // if (localStorage.getItem('api_token')) {
+  //     //  存在将api_token写入 request header
+  //     config.headers.apiToken = `${localStorage.getItem('api_token')}`
+  // }
+  NProgress.start()
   return config
 }, error => {
-    // Indicator.close();
+  NProgress.done()
   return Promise.reject(error)
 })
 axios.interceptors.response.use(res => {
-    // Indicator.close();
+  NProgress.done()
   return res
 }, error => {
-    // Indicator.close();
+  NProgress.done()
   return Promise.resolve(error.res)
 })
 function checkStatus (res) {
-    // 如果http状态码正常，则直接返回数据
+  // 如果http状态码正常，则直接返回数据
   if (res && (res.status === 200 || res.status === 304)) {
     return res
   }
-// 异常状态下，把错误信息返回去
+  // 异常状态下，把错误信息返回去
   return {
     status: -404,
-    msg: '网络异常'
+    msg: '网络异常,请稍后再试！'
   }
 }
 // checkCode
 function checkCode (res) {
-    // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
+  // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
   if (res.status === -404) {
-    console.log('网络错误，请稍后再试')
-    // Toast({
-    //   message: res.msg,
-    //   position: 'top',
-    //   duration: 2000
-    // })
-  }
-  if (res.data && (!res.data.success)) {
-    // Toast({
-    //   message: res.data.error_msg,
-    //   position: 'bottom',
-    //   duration: 2000
-    // })
-    // alert(res.data.error_msg)
+    Message({
+      message: res.msg,
+      type: 'error',
+      showClose: true
+    })
   }
   return res
 }
@@ -97,7 +87,7 @@ function checkCode (res) {
 
 // 公共post/get请求方式配置
 export default {
-  post (url, params) {  //  post
+  post (url, params) { //  post
     return axios({
       method: 'post',
       baseURL,
@@ -109,16 +99,16 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     }).then(
-        (res) => {
-          return checkStatus(res)
-        }
+      (res) => {
+        return checkStatus(res)
+      }
     ).then(
-        (res) => {
-          return checkCode(res)
-        }
+      (res) => {
+        return checkCode(res)
+      }
     )
   },
-  get (url, params) {  // get
+  get (url, params) { // get
     return axios({
       method: 'get',
       baseURL,
@@ -129,13 +119,13 @@ export default {
         'X-Requested-With': 'XMLHttpRequest'
       }
     }).then(
-        (res) => {
-          return checkStatus(res)
-        }
+      (res) => {
+        return checkStatus(res)
+      }
     ).then(
-        (res) => {
-          return checkCode(res)
-        }
+      (res) => {
+        return checkCode(res)
+      }
     )
   }
 }

@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img src="../../assets/img/gongfang_logo.png" alt="logo">
+      </a>
+    </div>
     <section class="sign-up">
       <h4 class="title">
         <div class="normal-title">
@@ -78,6 +83,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
   @import '../../assets/style/mixin';
+  .logo{
+    @include absTL(20px, 40px)
+  }
   .sign-up{
     width: 400px;
     margin: 0 auto;
@@ -235,6 +243,9 @@ export default {
       left: 50%;
       margin: 0 0 0 -200px;
       box-shadow: none;
+    }
+    .logo{
+      display: none;
     }
   }
 

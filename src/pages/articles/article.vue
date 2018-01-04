@@ -19,16 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="article-detail" v-html="detail">
-        01刚上大学的时候，班里有个挺文气的男生。他性格有些内向，和男生一起玩还算得上开朗，一和女生呆在一起就很害羞，甚至和女孩子说一两句话脸就涨得通红。
-        一次，图书馆举办书展，班上有个女同学凑巧碰见了他，便随口约他一起去逛书展。他心里一热，乐呵呵地陪着对方去了。其实两个人也没说几句话，到了那里也只是各看各的书而已。这个哥们儿回来之后，表情就不一样了，一脸的甜蜜和窃喜。很显然，他动心了，喜欢上了那个女同学。
-        然后，过了几天，他鼓起勇气给那个女同学发了一条经过精心编辑的短信表白爱慕之心。那条表白短信用词考究，标点规范，文采斐然，深情款款，可以说耗尽了他的才情。
-        发完短信，他又激动又忐忑，简直坐立不安。过了十分钟，他收到了对方的回信:“谢谢你的一片深情。你很好，可是我们不合适。”
-        他看着短信，就像一朵被霜打了的花朵，无精打采。我们问他:“接下来有什么打算吗？”他坚定地说:“我不会放弃的。我相信这是她给我的考验，我会继续追她。”“那你打算继续追多久呢？”我们问他。他眼睛里闪烁着光芒:“二十年！”我们非常惊讶:“你确定？”他点了点头，一副不撞南墙不回头的架势。我们见状，不好再说什么，只是拍了拍他的肩膀。
-        半个月以后，他告诉我们，他 第二次向那个女同学表白，又被拒绝了。一个月以后，他的第三次表白还是被拒绝了。对方甚至不愿意再跟他说话，即使碰见也把头扭向一边。如果几个同学一起玩，那个女同学的目光基本上不看他。这让他越发觉得痛苦和抓狂。
-        就这样，一年过去了，我们基本上淡忘了这个事情，仿佛那只是一个趣闻段子。有一次一个舍友过生日，大家谈笑间，不知道谁突然提起了这件事。我们问他后来怎么样了，他笑了笑:“我放弃了，没意思。”我调侃地说:“我记得你说过要追她二十年呢？这好像还差十九年呢！”他尴尬地笑了笑说:“那都是当时一时冲动才说的话。不喜欢就是不喜欢，追的时间再久、表白的次数再多也没有用的。或许是我太傻了吧。从她第一次拒绝我，我就应该明白，她其实根本就不喜欢我。”
-        一席话落，全场沉默。
-      </div>
+      <div class="article-detail" v-html="detail"></div>
     </section>
     <!-- 分享点赞 -->
     <section class="meta-bottom">
@@ -52,7 +43,7 @@
     </section>
     <!-- 评论 -->
     <section class="comments">
-      <!-- 如果已经登录可以发表评论 -->
+      <!-- 未登录，提示登录才可以发表评论-->
       <div class="new-comments" v-show="false">
         <a href="#" class="avatar">
           <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
@@ -61,7 +52,7 @@
           <a href="#" class="signin-btn">登录</a><span>后发表评论</span>
         </div>
       </div>
-      <!-- 未登录，提示登录才可以发表评论 -->
+      <!-- 如果已经登录可以发表评论 -->
       <div class="new-comments">
         <a href="#" class="avatar">
           <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
@@ -84,7 +75,7 @@
                   <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
                 </a>
                 <div class="info">
-                  <a href="#">徐小多的日常</a>
+                  <a href="#" class="name">徐小多的日常</a>
                   <div class="meta">
                     <span class="comment-time">2017.12.27 10:08:00</span>
                   </div>
@@ -94,11 +85,11 @@
                 <p class="comment-descr">确实是干货，但是太干了，不会写代码啊</p>
                 <div class="tool-group">
                   <a href="#" class="comment-like">
-                    <i class="icon-like icon"></i>
+                    <i class="icon-like iconfont"></i>
                     <span>8人赞</span>
                   </a>
                   <a href="#" class="comment-reply">
-                    <i class="icon-reply icon"></i>
+                    <i class="icon-comment iconfont"></i>
                     <span>回复</span>
                   </a>
                 </div>
@@ -107,22 +98,96 @@
             <ul class="sub-comment-list">
               <li class="sub-comment">
                 <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>顶你个肺啊！！！！</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
+                  </a>
+                </div>
+              </li>
+              <li class="sub-comment">
+                <p>
                   <a href="#" class="comment-author">犀牛角_sun</a>：<span>+1</span>
                 </p>
                 <div class="sub-tool-group">
                   <span class="sub-comment-time">2017.12.27 10:08:00</span>
                   <a href="#" class="sub-comment-reply">
-                    <i class="icon ic-comment"></i>
-                    <span class="reply">回复</span>
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
                   </a>
                 </div>
               </li>
+              <div class="sub-comment more-comment">
+                <a class="add-comment-btn">
+                  <i class="iconfont icon-write"></i>
+                  <span>添加新评论</span>
+                </a>
+              </div>
             </ul>
           </li>
-          <li class="comment-item"></li>
-          <li class="comment-item"></li>
-          <li class="comment-item"></li>
-          <li class="comment-item"></li>
+          <li class="comment-item">
+            <div>
+              <div class="author">
+                <a href="#" class="avatar">
+                  <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+                </a>
+                <div class="info">
+                  <a href="#" class="name">徐小多的日常</a>
+                  <div class="meta">
+                    <span class="comment-time">2017.12.27 10:08:00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-wrap">
+                <p class="comment-descr">确实是干货，但是太干了，不会写代码啊</p>
+                <div class="tool-group">
+                  <a href="#" class="comment-like">
+                    <i class="icon-like iconfont"></i>
+                    <span>8人赞</span>
+                  </a>
+                  <a href="#" class="comment-reply">
+                    <i class="icon-comment iconfont"></i>
+                    <span>回复</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <ul class="sub-comment-list">
+              <li class="sub-comment">
+                <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>顶你个肺啊！！！！</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
+                  </a>
+                </div>
+              </li>
+              <li class="sub-comment">
+                <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>+1</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
+                  </a>
+                </div>
+              </li>
+              <div class="sub-comment more-comment">
+                <a class="add-comment-btn">
+                  <i class="iconfont icon-write"></i>
+                  <span>添加新评论</span>
+                </a>
+              </div>
+            </ul>
+          </li>
         </ul>
       </div>
     </section>
@@ -135,7 +200,7 @@ export default {
   data () {
     return {
       msg: 'template',
-      detail: ''
+      detail: '<p>我从这里轻轻走过</p><p>故事填满了岁月</p><p>有悲伤也有喜悦</p><p>他们都说</p><p>这才是真正的生活</p><p>时光的沙漏</p><p>流完只剩下沉默</p><p>沙底下面埋葬了过往</p><p>很多场景难以言说</p><p>好像不曾拥有过</p><p>多少愁情落寞</p><p>多少悲欢离合</p><p>被遗忘在记忆的角落</p><p>从过去到现在</p><p>仿佛只是一瞬间的穿越</p><p>中途历经了什么</p><p>何必认真琢磨</p><p>反正人们只注重结果</p><p>与曾经告别</p><p>就是这么样决绝</p>'
     }
   }
 }
@@ -224,6 +289,9 @@ export default {
       margin:0 auto;
       padding-bottom: 30px;
       border-bottom: 2px solid #eee;
+      p{
+        margin-bottom: 25px;
+      }
     }
   }
   .meta-bottom{
@@ -402,6 +470,95 @@ export default {
           color: #fff !important;
           background-color: #42c02e;
           cursor: pointer;
+        }
+      }
+    }
+  }
+  .comments-list{
+    width: 90%;
+    margin-top:30px;
+    margin:0 auto;
+    ul{
+      .comment-item{
+        padding: 20px 0 30px;
+        border-bottom: 1px solid #f0f0f0;
+        .author{
+          margin-bottom: 15px;
+          .avatar{
+            margin-right: 5px;
+            @include wh(38px, 38px);
+            vertical-align: middle;
+            display: inline-block;
+            img{
+              @include wh(100%,100%);
+            }
+          }
+          .info{
+            display: inline-block;
+            vertical-align: middle;
+            .name{
+              @include sc(15px, #333);
+            }
+            .meta{
+              @include sc(12px, #969696);
+            }
+          }
+        }
+        .comment-wrap{
+          .comment-descr{
+            margin: 10px 0;
+            line-height: 1.5;
+            font-size: 16px;
+            word-break: break-word;
+          }
+          .tool-group{
+            a{
+              margin-right: 10px;
+              font-size: 14px;
+              display: inline-block;
+              span{
+                color: #969696;
+              }
+            }
+          }
+        }
+        .sub-comment-list{
+          margin-top: 20px;
+          padding: 5px 0 5px 20px;
+          border-left: 2px solid #d9d9d9;
+          li.sub-comment{
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #f0f0f0;
+            a{
+              @include sc(14px, #3194d0);
+            }
+            span{
+              @include sc(14px, #333)
+            }
+            .sub-tool-group{
+              a{
+                margin-right: 10px;
+                font-size: 14px;
+                display: inline-block;
+              }
+              span{
+                color: #969696;
+                font-size: 12px;
+              }
+            }
+          }
+          .add-comment-btn{
+            i,span{
+              @include sc(14px, #969696);
+              cursor: pointer;
+            }
+            &:hover{
+              i,span{
+                @include sc(14px, #333)
+              }
+            }
+          }
         }
       }
     }

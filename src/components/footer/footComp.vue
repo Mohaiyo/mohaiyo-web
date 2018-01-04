@@ -1,6 +1,6 @@
 <template>
   <div class="foot-container">
-    还没想好写什么
+    我是底部，还没想好写什么
   </div>
 </template>
 
@@ -19,8 +19,8 @@ export default {
 <style scoped>
   .foot-container{
     margin:0px auto;
-    padding-top:20px;
-    text-align: left;
+    padding:20px 10px;
+    text-align: center;
   }
   @media (min-width:320px) and (max-width:767px){
     .foot-container{

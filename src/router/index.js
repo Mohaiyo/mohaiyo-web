@@ -6,6 +6,9 @@ const SignIn = r => require.ensure([], () => r(require('@/pages/sign/signIn.vue'
 const SignUp = r => require.ensure([], () => r(require('@/pages/sign/signUp.vue')), 'sign')
 const Article = r => require.ensure([], () => r(require('@/pages/articles/article.vue')), 'articles')
 const NewArticle = r => require.ensure([], () => r(require('@/pages/articles/writeArticle.vue')), 'articles')
+const Hot = r => require.ensure([], () => r(require('@/pages/hot/hot.vue')), 'hot')
+const Show = r => require.ensure([], () => r(require('@/pages/show/show.vue')), 'show')
+const About = r => require.ensure([], () => r(require('@/pages/about/about.vue')), 'about')
 Vue.use(Router)
 
 export default new Router({
@@ -32,7 +35,10 @@ export default new Router({
         { path: '', redirect: 'index' },
         { path: 'index', component: Index, alias: '/a', name: 'index' },
         { path: 'article/:arcticlId', component: Article, name: 'articlePage' },
-        { path: 'newArcticle', component: NewArticle, name: 'newArticle' }
+        { path: 'newArcticle', component: NewArticle, name: 'newArticle' },
+        { path: 'hot', component: Hot, name: 'hot' },
+        { path: 'show', component: Show, name: 'show' },
+        { path: 'about', component: About, name: 'about' }
       ]
     }
   ]

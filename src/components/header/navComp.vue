@@ -9,11 +9,11 @@
         <!-- 992px以上的屏幕使用菜单栏 -->
         <ul class="menu-list">
           <!-- 992px以上的屏幕使用菜单栏 -->
-          <li class="menu-item" :class="{active: index == menuIndex}" v-for="(item,index) of navList" :key="item.listId" @click="navHandler(index)">{{ item.listName }}</li>
+          <router-link tag="li" :to="item.link" class="menu-item" :class="{active: $route.path.includes(item.link)}" v-for="(item,index) of navList" :key="item.listId">{{ item.listName }}</router-link>
           <!-- 992px以下的使用图标 -->
           <li class="menu-icon" ref="menu-icon" @click="menuHandler">
             <ul class="sub-menu menu-hover" v-show="menuShow">
-              <li class="sub-menu-item" :class="{active: index == menuIndex}" v-for="(item,index) of navList" :key="item.listId" @click="navHandler(index)">{{ item.listName }}</li>
+              <router-link tag="li" :to="item.link" class="sub-menu-item" :class="{active: $route.path.includes(item.link)}" v-for="(item,index) of navList" :key="item.listId">{{ item.listName }}</router-link>
             </ul>
           </li>
         </ul>
@@ -57,12 +57,11 @@ export default {
   name: '',
   data () {
     return {
-      navList: [{listId: 10001, listName: '主页'}, {listId: 10002, listName: '热门'}, {listId: 10003, listName: '关于'}],
+      navList: [{listId: 10001, listName: '主页', link: '/home/index'}, {listId: 10002, listName: '热门', link: '/home/hot'}, {listId: 10003, listName: '关于', link: '/home/about'}, {listId: 10004, listName: '作品展示', link: '/home/show'}],
       searchVal: '',
       isActive: true,
       menuShow: false,
-      hasSignIn: false,
-      menuIndex: 0
+      hasSignIn: false
     }
   },
   created () {
@@ -71,9 +70,6 @@ export default {
   methods: {
     menuHandler () {
       this.menuShow = !this.menuShow
-    },
-    navHandler (i) {
-      this.menuIndex = i
     },
     getUserInfo () {
       this.$axios.get('/api/user/getUserInfo', {}).then(res => {

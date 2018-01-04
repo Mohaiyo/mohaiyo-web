@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div class="logo">
+      <a href="/">
+        <img src="../../assets/img/gongfang_logo.png" alt="logo">
+      </a>
+    </div>
     <section class="sign-up">
       <h4 class="title">
         <div class="normal-title">
@@ -12,7 +17,7 @@
         <form class="new_user" @submit.prevent="submit">
           <div class="input-wrap">
             <i class="input-icon ic-user"></i>
-            <input type="text" class="radius-top" placeholder="用户名" maxlength="20" v-model="username">
+            <input type="text" class="radius-top" placeholder="请输入用户名" maxlength="20" v-model="username">
           </div>
           <div class="input-wrap no-radius">
             <i class="input-icon ic-psw"></i>
@@ -20,7 +25,7 @@
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
-            <input type="text" class="radius-bottom" placeholder="验证码" maxlength="4" v-model="cap_code">
+            <input type="text" class="radius-bottom" placeholder="请输入验证码" maxlength="4" v-model="cap_code">
             <span class="sms-code" @click="getCaptchas">
               <img :src="smsCode" alt="验证码">
             </span>
@@ -87,6 +92,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
   @import '../../assets/style/mixin';
+  .logo{
+    @include absTL(20px, 40px)
+  }
   .sign-up{
     width: 400px;
     margin: 0 auto;
@@ -246,6 +254,9 @@ export default {
       left: 50%;
       margin: 0 0 0 -200px;
       box-shadow: none;
+    }
+    .logo{
+      display: none;
     }
   }
 
