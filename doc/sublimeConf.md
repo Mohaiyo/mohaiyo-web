@@ -1,0 +1,47 @@
+# package Control List
+
+- 1337 color Scheme
+- 3D tool
+- Alignment
+- autoprefixer
+- bracketeer
+- bracketHeighter
+- ChineseLocalization
+- CSSFormat
+- docBlockr
+- EditorConfig
+- Emmet
+- Emmet Css Snippets
+- Eslint
+- FileHeader
+- HTML Mustache
+- HTML5
+- HTML5 Attributes
+- javascript & nodejs Snippets
+- java Velocity
+- javascript Snippets
+- Jquery
+- JSX
+- Monokai Extended
+- nodejs
+- packge control
+- quotehtml
+- React & React-router Snippets
+- React ES6 Snippets
+- React-IDE
+- React-template
+- React js
+- Reactjs Snippets
+- Sass
+- Sass Snippets
+- sublimelinter
+- sideBarEnhanceMents
+- sidebarSeparator
+- sideBarTool
+- StyleTooken
+- ViewInBrowser
+- Vue Syntax HighLight
+- Vue formatter
+- Vue complete pacakge
+- vuejs snippets
+- ZZZZZZZZ-Localization

@@ -16,34 +16,53 @@ axios.interceptors.request.use(config => {
   //     //  存在将api_token写入 request header
   //     config.headers.apiToken = `${localStorage.getItem('api_token')}`
   // }
+  // 这里可以加一些动作, 比如来个进度条开始动作
   NProgress.start()
   return config
 }, error => {
-  NProgress.done()
   return Promise.reject(error)
 })
+
 axios.interceptors.response.use(res => {
-  NProgress.done()
   return res
+
+  // 这里的return res返回的是一个对象, 内容如下
+  // {
+  //   // 服务器提供的响应
+  //   data: {},
+  //   // 服务器响应的HTTP状态代码
+  //   status: 200,
+  //   // 服务器响应的HTTP状态消息
+  //   statusText: 'OK',
+  //   // 服务器响应头
+  //   headers: {},
+  //   // axios 的配置
+  //   config: {}
+  // }
 }, error => {
-  NProgress.done()
+  // 这里我们把错误信息扶正, 后面就不需要写 catch 了
   return Promise.resolve(error.res)
 })
 function checkStatus (res) {
+  // 这里可以加一些动作, 比如来个进度条结束动作
+  NProgress.done()
   // 如果http状态码正常，则直接返回数据
   if (res && (res.status === 200 || res.status === 304)) {
-    return res
+    // 这里, 如果不需要除 data 外的其他数据, 可以直接 return response.data, 这样可以让后面的代码精简一些
+    return res.data
   }
-  // 异常状态下，把错误信息返回去
+  // 异常状态下, 把错误信息返回去
+  // 因为前面我们把错误扶正了, 不然像 404, 500 这样的错误是走不到这里的
   return {
-    status: -404,
-    msg: '网络异常,请稍后再试！'
+    code: -404,
+    msg: res.statusText,
+    data: res.statusText
   }
 }
 // checkCode
 function checkCode (res) {
   // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
-  if (res.status === -404) {
+  if (res.code !== 200) {
     Message({
       message: res.msg,
       type: 'error',
@@ -52,38 +71,6 @@ function checkCode (res) {
   }
   return res
 }
-
-// 返回结果校验
-// const errCheck = (o) => {
-//     if (!o) {
-//         MessageBox.alert( '系统繁忙，请稍后再试！', '提示', {
-//             confirmButtonText: '确定'
-//         })
-//         return false
-//     } else if (o && (typeof o == 'string') ) {
-//         o = JSON.parse(o)
-//     }
-//     // 错误检查
-//     if (o.errorCode != '0000') {
-//         if (o.errorCode == '9000') {
-//             MessageBox.alert( o.errorMsg, '提示', {
-//                 confirmButtonText: '确定',
-//                 callback: action => {
-//                     localStorage.clear()
-//                     window.location.href = '/' //返回登陆页
-//                 }
-//             })
-//             return false
-//         } else {
-//             MessageBox.alert( o.errorMsg || '没有返回errorMsg', '提示', {
-//                 confirmButtonText: '确定'
-//             })
-//             return false
-//         }
-//     } else {
-//         return true
-//     }
-// }
 
 // 公共post/get请求方式配置
 export default {
@@ -98,15 +85,7 @@ export default {
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
-    }).then(
-      (res) => {
-        return checkStatus(res)
-      }
-    ).then(
-      (res) => {
-        return checkCode(res)
-      }
-    )
+    }).then(checkStatus).then(checkCode)
   },
   get (url, params) { // get
     return axios({
@@ -118,14 +97,6 @@ export default {
       headers: {
         'X-Requested-With': 'XMLHttpRequest'
       }
-    }).then(
-      (res) => {
-        return checkStatus(res)
-      }
-    ).then(
-      (res) => {
-        return checkCode(res)
-      }
-    )
+    }).then(checkStatus).then(checkCode)
   }
 }

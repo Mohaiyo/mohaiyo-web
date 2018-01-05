@@ -73,7 +73,7 @@ export default {
     },
     getUserInfo () {
       this.$axios.get('/api/user/getUserInfo', {}).then(res => {
-        let data = res.data
+        let data = res
         if (data.status === 200) {
           this.hasSignIn = data.login
         }

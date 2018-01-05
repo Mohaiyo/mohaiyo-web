@@ -10,7 +10,7 @@ length：返回类列表中类的数量（只读）
 
 - 方法：
 
-```
+```js
 .a { color:red }
 .b { color:green }
 .c { color: yellow }
@@ -19,14 +19,15 @@ length：返回类列表中类的数量（只读）
 
 var el = document.getElementById(div);
 ```
-  - add( class1, class2, ...)
-  > 在元素中添加一个或多个类名（如果指定的类名已存在，则不会添加） 用法：`el.classList.add("a", "b", "c");`
-  - remove( class1, class2, ...)
-  > 删除元素中一个或多个类名  用法：el.classList.remove('a','b');
-  - toggle(class, true|false)
-  > 在元素中切换类名 参数1：要移出或者添加的类名 参数2：可选参数，不论类名是否存在，为true时强制添加类名，false时强制删除类名
-  > 用法： 添加：el.classList.toggle("d", true);，删除：el.classList.toggle("d", false);
-  - contains( class )
-  > 判断指定的类名是否存在 用法：el.classList.contains("e")  ，// 返回true
-  - item(index)
-  > 根据索引返回类名，索引从 0 开始，如果没有则返回null  用法：el.classList.item(0)  //返回e
+
+- add( class1, class2, ...)
+> 在元素中添加一个或多个类名（如果指定的类名已存在，则不会添加） 用法：`el.classList.add("a", "b", "c");`
+- remove( class1, class2, ...)
+> 删除元素中一个或多个类名  用法：el.classList.remove('a','b');
+- toggle(class, true|false)
+> 在元素中切换类名 参数1：要移出或者添加的类名 参数2：可选参数，不论类名是否存在，为true时强制添加类名，false时强制删除类名
+> 用法： 添加：el.classList.toggle("d", true);，删除：el.classList.toggle("d", false);
+- contains( class )
+> 判断指定的类名是否存在 用法：el.classList.contains("e")  ，// 返回true
+- item(index)
+> 根据索引返回类名，索引从 0 开始，如果没有则返回null  用法：el.classList.item(0)  //返回e
