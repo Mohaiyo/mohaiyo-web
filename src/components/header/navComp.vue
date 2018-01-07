@@ -9,11 +9,11 @@
         <!-- 992px以上的屏幕使用菜单栏 -->
         <ul class="menu-list">
           <!-- 992px以上的屏幕使用菜单栏 -->
-          <router-link tag="li" :to="item.link" class="menu-item" :class="{active: $route.path.includes(item.link)}" v-for="(item,index) of navList" :key="item.listId">{{ item.listName }}</router-link>
+          <router-link tag="li" :to="item.link" class="menu-item" :class="{active: $route.path.includes(item.link)}" v-for="item of navList" :key="item.listId">{{ item.listName }}</router-link>
           <!-- 992px以下的使用图标 -->
           <li class="menu-icon" ref="menu-icon" @click="menuHandler">
             <ul class="sub-menu menu-hover" v-show="menuShow">
-              <router-link tag="li" :to="item.link" class="sub-menu-item" :class="{active: $route.path.includes(item.link)}" v-for="(item,index) of navList" :key="item.listId">{{ item.listName }}</router-link>
+              <router-link tag="li" :to="item.link" class="sub-menu-item" :class="{active: $route.path.includes(item.link)}" v-for="item of navList" :key="item.listId">{{ item.listName }}</router-link>
             </ul>
           </li>
         </ul>
@@ -73,16 +73,17 @@ export default {
     },
     getUserInfo () {
       this.$axios.get('/api/user/getUserInfo', {}).then(res => {
+        console.log(res)
         let data = res
-        if (data.status === 200) {
+        if (data.code === 200) {
           this.hasSignIn = data.login
         }
       })
     },
     signOut () {
       this.$axios.get('/api/user/signout', {}).then(res => {
-        let data = res.data
-        if (data.status === 200) {
+        let data = res
+        if (data.code === 200) {
           this.hasSignIn = false
         } else {
           alert(data.message)

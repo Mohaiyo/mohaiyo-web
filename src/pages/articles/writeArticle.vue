@@ -1,5 +1,21 @@
 <template>
   <div class="container">
+    <form class="form">
+      <input type="text" placeholder="请输入文章标题"></br>
+      <label><input name="Tag" type="radio" value="1" />原创</label>
+      <label><input name="Tag" type="radio" value="2" />转载</label>
+      <label><input name="Tag" type="radio" value="3" />连载</label>
+      <select name="categrory" id="" v-model="select">
+        <option value="" disabled>请选择文章分类</option>
+        <option value="1">React</option>
+        <option value="2">Vue</option>
+        <option value="3">Nodejs</option>
+        <option value="4">Webpack</option>
+        <option value="5">HTML</option>
+        <option value="6">CSS</option>
+        <option value="7">其他  </option>
+      </select>
+    </form>
     <quill-editor v-model="content"
                   ref="myQuillEditor"
                   :options="editorOption">
@@ -23,7 +39,7 @@ Quill.register('modules/imageDrop', ImageDrop)
 Quill.register('modules/imageResize', ImageResize)
 
 export default {
-  name: 'arcticle',
+  name: 'writeArcticle',
   data () {
     return {
       content: '',
@@ -63,7 +79,8 @@ export default {
         },
         placeholder: '请输入文章内容',
         theme: 'snow'
-      }
+      },
+      select: ''
     }
   },
   methods: {
@@ -72,8 +89,8 @@ export default {
     },
     checkIfLogin () {
       this.$axios.get('/api/posts/create', {}).then(res => {
-        let data = res.data
-        if (data.status === 400) {
+        let data = res
+        if (data.code === 400) {
           this.$message({
             type: 'warning',
             message: data.message
@@ -105,6 +122,10 @@ export default {
   height: 550px;
   @include fja(flex-start, center);
   flex-flow: column nowrap;
+  .form{
+    display: table;
+    @include wh(100%,200px);
+  }
   .submit{
     padding-top: 15px;
     input{

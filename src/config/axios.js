@@ -55,8 +55,7 @@ function checkStatus (res) {
   // 因为前面我们把错误扶正了, 不然像 404, 500 这样的错误是走不到这里的
   return {
     code: -404,
-    msg: res.statusText,
-    data: res.statusText
+    msg: '网络错误，请耐心等候！'
   }
 }
 // checkCode

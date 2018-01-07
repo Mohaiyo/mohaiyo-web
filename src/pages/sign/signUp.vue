@@ -68,8 +68,8 @@ export default {
         password: this.password
       }
       this.$axios.post('api/signup', params).then(res => {
-        let data = res.data
-        if (data.status === 200) {
+        let data = res
+        if (data.code === 200) {
           this.$router.push({ path: '/home/index', params: {} })
         } else {
           alert(data.messege)
