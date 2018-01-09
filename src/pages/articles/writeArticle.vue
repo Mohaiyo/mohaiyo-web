@@ -3,13 +3,13 @@
     <form class="form" @submit.prevent="submit">
       <div class="title-wrap">
         <b class="pretend">标题：</b>
-        <input type="text" placeholder="请输入文章标题" class="title"/>
+        <input type="text" placeholder="请输入文章标题" class="title" v-model="title"/>
       </div>
       <div class="source">
         <div class="input-wrap">
-          <input name="source" type="radio" value="1" id="original" /><label for="original">原创</label>
-          <input name="source" type="radio" value="2" id="transfer" /><label for="transfer">转载</label>
-          <input name="source" type="radio" value="3" id="serial" /><label for="serial">连载</label>
+          <input name="source" type="radio" value="1" id="original"  v-model="source"/><label for="original">原创</label>
+          <input name="source" type="radio" value="2" id="transfer" v-model="source"/><label for="transfer">转载</label>
+          <input name="source" type="radio" value="3" id="serial" v-model="source"/><label for="serial">连载</label>
         </div>
         <div class="select-wrap">
           <select name="categrory" id="category" v-model="select">
@@ -20,7 +20,7 @@
             <option value="Webpack">Webpack</option>
             <option value="HTML">HTML</option>
             <option value="CSS">CSS</option>
-            <option value="7">其他  </option>
+            <option value="others">others</option>
           </select>
         </div>
       </div>
@@ -90,13 +90,12 @@ export default {
         placeholder: '请输入文章内容',
         theme: 'snow'
       },
-      select: ''
+      select: '',
+      title: '',
+      source: '1'
     }
   },
   methods: {
-    onEditorChange ({ quill, html, text }) {
-      this.content = html
-    },
     checkIfLogin () {
       this.$axios.get('/api/posts/create', {}).then(res => {
         let data = res
@@ -111,7 +110,16 @@ export default {
       })
     },
     submit () {
-      console.log('提交文章！')
+      console.log(this.content)
+      let params = {
+        title: this.title,
+        source: this.source,
+        categoryId: this.select,
+        content: this.content
+      }
+      this.$axios.post('/api/posts/create', params).then(res => {
+        console.log(res)
+      })
     },
     cancel () {
       this.$router.go(-1)
