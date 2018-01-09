@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
     @import 'assets/style/common';
+    @import 'assets/style/minireset.min.css';
     .router-fade-enter-active, .router-fade-leave-active {
         transition: opacity .3s;
     }
