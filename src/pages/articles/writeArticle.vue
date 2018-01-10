@@ -123,6 +123,11 @@ export default {
             type: 'success',
             message: data.message
           })
+        } else {
+          this.$message({
+            type: 'error',
+            message: data.message
+          })
         }
       })
     },
