@@ -1,16 +1,18 @@
 <template>
   <div class="foot-container">
-    我是底部，还没想好写什么
+    <div>
+      <span>Mohaiyo</span>
+      <router-link to="https://github.com/Mohaiyo" class="link">@github</router-link>
+      <span>纯手工搭建的博客</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: '',
+  name: 'footComp',
   data () {
-    return {
-      msg: 'template'
-    }
+    return {}
   }
 }
 </script>
@@ -37,6 +39,10 @@ export default {
     .foot-container{
       max-width:960px;
     }
+  }
+  .link{
+    font-size: 14px;
+    color: #007ac9;
   }
 </style>
 

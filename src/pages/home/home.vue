@@ -13,9 +13,6 @@
         <swiper-slide>
           <img src="../../assets/img/8f6f175fdd264241c93152431e25c4a46c2434ee.jpg" alt="" class="slide-img">
         </swiper-slide>
-        <swiper-slide>
-          <img src="../../assets/img/97984254f407672e5ca56e4aa66ad9e4330e3e0b.jpg" alt="" class="slide-img">
-        </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -171,13 +168,8 @@
           </li>
         </ul>
       </div>
-      <Alert title="我是普通提示！" :closable="false" show-icon ></Alert>
-      <Alert title="我是警告提示！" type="warning" close-text="我知道了" @close="colseHandler" show-icon></Alert>
-      <Alert title="我是成功提示！" type="success" show-icon description="我是描述性语句！嘻嘻字体库构建成功！果然还是好用啊，哈哈哈哈！"></Alert>
-      <Alert title="我是错误提示！" type="error" show-icon></Alert>
     </section>
     <section class="side-bar">
-      <!-- <h3 class="board-title">文章分类</h3> -->
       <div class="board">
         <a href="#" class="topic-item border-o">
           <span class="avatar-link">
@@ -239,70 +231,7 @@
           </div>
           <i class="icon icon-arrow-right"></i>
         </a>
-        <!-- <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/css.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">CSS</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/fe-webpack.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">Webpack</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a> -->
       </div>
-      <!-- <h3 class="board-title">兴趣爱好</h3>
-      <div class="board">
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/game_creat.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">游戏</h3>
-            <p class="topic-meta">10 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/music-dance.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">音乐</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/movie.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">电影</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="../../assets/img/photo.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">摄影</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-      </div> -->
     </section>
   </div>
 </template>
@@ -310,7 +239,6 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import Alert from '../../components/common/alert'
 export default {
   name: 'home',
   data () {
@@ -343,7 +271,8 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$root)
+    this.fetchIndexData()
+    // console.log(this.$root)
     // current swiper instance
     // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
     // console.log('this is current swiper instance object', this.swiper)
@@ -351,12 +280,17 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide,
-    Alert
+    swiperSlide
   },
   methods: {
-    colseHandler () {
-      alert('听说我就是回调')
+    fetchIndexData () {
+      let params = {
+        pageNo: 1,
+        pageSize: 10
+      }
+      this.$axios.get('/api/posts', params).then(res => {
+        console.log(res)
+      })
     }
   }
 }

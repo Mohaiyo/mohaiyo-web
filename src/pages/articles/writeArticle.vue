@@ -14,13 +14,13 @@
         <div class="select-wrap">
           <select name="categrory" id="category" v-model="select">
             <option value="" disabled>请选择文章分类</option>
-            <option value="React">React</option>
-            <option value="Vue">Vue</option>
-            <option value="Nodejs">Nodejs</option>
-            <option value="Webpack">Webpack</option>
+            <option value="58d62644c1a5bd0001672cc5">React</option>
+            <option value="58d626a9c1a5bd0001672cc9">Vue</option>
+            <option value="58d6270bc1a5bd0001672ccd">Nodejs</option>
+            <!-- <option value="Webpack">Webpack</option>
             <option value="HTML">HTML</option>
             <option value="CSS">CSS</option>
-            <option value="others">others</option>
+            <option value="others">others</option> -->
           </select>
         </div>
       </div>
@@ -110,7 +110,6 @@ export default {
       })
     },
     submit () {
-      console.log(this.content)
       let params = {
         title: this.title,
         source: this.source,
@@ -118,7 +117,13 @@ export default {
         content: this.content
       }
       this.$axios.post('/api/posts/create', params).then(res => {
-        console.log(res)
+        let data = res
+        if (data.code === 200) {
+          this.$message({
+            type: 'success',
+            message: data.message
+          })
+        }
       })
     },
     cancel () {
