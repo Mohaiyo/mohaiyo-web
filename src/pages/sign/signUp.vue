@@ -34,11 +34,11 @@
           <input type="submit" value="点我注册" class="submit-btn">
         </form>
         <div class="more-sign">
-          <h6>社交帐号直接注册</h6>
+          <h6>社交帐号注册</h6>
           <ul>
-            <li><a class="weibo" target="_blank" href="#"><i class="iconfont ic-weibo"></i></a></li>
-            <li><a class="weixin" target="_blank" href="#"><i class="iconfont ic-wechat"></i></a></li>
-            <li><a class="qq" target="_blank" href="#"><i class="iconfont ic-qq-connect"></i></a></li>
+            <li @click="tipHandler"><a class="weibo" href="avascript::"><i class="iconfont ic-weibo"></i></a></li>
+            <li @click="tipHandler"><a class="weixin" href="avascript::"><i class="iconfont ic-wechat"></i></a></li>
+            <li @click="tipHandler"><a class="qq" href="avascript::"><i class="iconfont ic-qq-connect"></i></a></li>
           </ul>
         </div>
       </div>
@@ -59,8 +59,18 @@ export default {
   },
   methods: {
     submit () {
+      if (!this.username || !this.email || !this.password || !this.agPassword) {
+        this.$message({
+          type: 'error',
+          message: '讨厌，昵称、邮箱、密码、确认密码都要填了啦'
+        })
+        return false
+      }
       if (this.password !== this.agPassword) {
-        alert('两次输入的密码不一致！')
+        this.$message({
+          type: 'error',
+          message: '两次输入的密码不一致！'
+        })
       }
       let params = {
         username: this.username,
@@ -71,9 +81,13 @@ export default {
         let data = res
         if (data.code === 200) {
           this.$router.push({ path: '/home/index', params: {} })
-        } else {
-          alert(data.messege)
         }
+      })
+    },
+    tipHandler () {
+      this.$message({
+        type: 'warning',
+        message: '诶呀，不要点人家了，我还在开发呢！'
       })
     }
   }

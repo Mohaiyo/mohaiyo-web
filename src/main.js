@@ -10,7 +10,9 @@ import 'nprogress/nprogress.css'
 
 Vue.config.productionTip = false
 
+// 使用全局弹框提示
 Vue.prototype.$message = Message
+// 注册全局$axios方法
 Vue.prototype.$axios = axios
 
 /* eslint-disable no-new */

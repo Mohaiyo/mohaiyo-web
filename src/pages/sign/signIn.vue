@@ -35,9 +35,9 @@
         <div class="more-sign">
           <h6>社交帐号登录</h6>
           <ul>
-            <li><a class="weibo" target="_blank" href="#"><i class="iconfont ic-weibo"></i></a></li>
-            <li><a class="weixin" target="_blank" href="#"><i class="iconfont ic-wechat"></i></a></li>
-            <li><a class="qq" target="_blank" href="#"><i class="iconfont ic-qq-connect"></i></a></li>
+            <li @click="tipHandler"><a class="weibo" href="javascript::"><i class="iconfont ic-weibo"></i></a></li>
+            <li @click="tipHandler"><a class="weixin" href="javascript::"><i class="iconfont ic-wechat"></i></a></li>
+            <li @click="tipHandler"><a class="qq" href="javascript::"><i class="iconfont ic-qq-connect"></i></a></li>
           </ul>
         </div>
       </div>
@@ -69,6 +69,25 @@ export default {
       })
     },
     signIn () {
+      if (!this.username) {
+        this.$message({
+          type: 'error',
+          message: '你还没有输入用户名哦!'
+        })
+        return false
+      } else if (!this.password) {
+        this.$message({
+          type: 'error',
+          message: '你还没有输入密码哦!'
+        })
+        return false
+      } else if (!this.cap_code) {
+        this.$message({
+          type: 'error',
+          message: '你还没有输入验证码哦!'
+        })
+        return false
+      }
       let params = {
         username: this.username,
         password: this.password,
@@ -81,8 +100,13 @@ export default {
         } else {
           // 刷新验证码
           this.getCaptchas()
-          alert(data.message)
         }
+      })
+    },
+    tipHandler () {
+      this.$message({
+        type: 'warning',
+        message: '诶呀，不要点人家了，我还在开发呢！'
       })
     }
   }

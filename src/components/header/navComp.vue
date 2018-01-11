@@ -76,6 +76,7 @@ export default {
         let data = res
         if (data.code === 200) {
           this.hasSignIn = data.login
+          sessionStorage.setItem('hasLogin', data.login)
         }
       })
     },
@@ -84,8 +85,7 @@ export default {
         let data = res
         if (data.code === 200) {
           this.hasSignIn = false
-        } else {
-          alert(data.message)
+          sessionStorage.setItem('hasLogin', false)
         }
       })
     }

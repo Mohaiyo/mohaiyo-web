@@ -2,7 +2,7 @@
   <div class="foot-container">
     <div>
       <span>Mohaiyo</span>
-      <router-link to="https://github.com/Mohaiyo" class="link">@github</router-link>
+      <a href="https://github.com/Mohaiyo" class="link">@github</a>
       <span>纯手工搭建的博客</span>
     </div>
   </div>

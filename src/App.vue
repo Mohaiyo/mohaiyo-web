@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="fade" mode="in-out">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -13,16 +15,13 @@ export default {
 <style lang="scss">
     @import 'assets/style/common';
     @import 'assets/style/minireset.min.css';
-    .router-fade-enter-active, .router-fade-leave-active {
+    .fade-enter-active, .fade-leave-active {
         transition: opacity .3s;
     }
-    .router-fade-enter, .router-fade-leave-to {
+    .fade-enter, .fade-leave-to {
         opacity: 0;
     }
-    .router-fade-enter-to, .router-fade-leave {
+    .fade-enter-to, .fade-leave {
         opacity: 1;
-    }
-    .mint-toast-text{
-        color: #fff;
     }
 </style>

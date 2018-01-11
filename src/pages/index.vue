@@ -1,7 +1,9 @@
 <template>
   <div>
     <nav-comp/>
-    <router-view/>
+    <transition name="main-fade" mode="out-in">
+      <router-view/>
+    </transition>
     <foot-comp/>
   </div>
 </template>
@@ -25,4 +27,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .main-fade-enter-active, .main-fade-leave-active {
+        transition: all .3s;
+    }
+    .main-fade-enter, .main-fade-leave-to {
+        opacity: 0;
+        transform:translate3d(0,100px,0);
+    }
+    .main-fade-enter-to, .main-fade-leave {
+        opacity: 1;
+        transform:translate3d(0,0,0);
+    }
 </style>
