@@ -1,6 +1,6 @@
 <template>
   <div id="editor">
-    <mavon-editor style="height: 100%" v-model="value" placeholder="请在此挥洒你的笔墨，支持markdown语法哦..." @change="getContent(value)"></mavon-editor>
+    <mavon-editor style="height: 100%" v-model="value" placeholder="请在此挥洒你的笔墨，支持markdown语法哦..." @change="getContent(value)" :subfield = false></mavon-editor>
   </div>
 </template>
 
@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     getContent (contents) {
+      console.log(this.value)
       this.$emit('getValue', contents)
     }
   }
@@ -65,6 +66,6 @@ export default {
   #editor {
     margin: 25px auto;
     width: 100%;
-    height: 300px;
+    height: 60vh;
   }
 </style>

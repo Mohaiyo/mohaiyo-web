@@ -87,6 +87,7 @@ export default {
       this.$router.go(-1)
     },
     getValue (value) {
+      console.log(value)
       this.content = value
     }
   },
