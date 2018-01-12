@@ -15,9 +15,7 @@
         <div class="select-wrap">
           <select name="categrory" id="category" v-model="select">
             <option value="" disabled>请选择文章分类</option>
-            <option value="58d62644c1a5bd0001672cc5">React</option>
-            <option value="58d626a9c1a5bd0001672cc9">Vue</option>
-            <option value="58d6270bc1a5bd0001672ccd">Nodejs</option>
+            <option  v-for="item of cateLists" :value="item._id" :key="item._id">{{ item.cate_name }}</option>
           </select>
         </div>
       </div>
@@ -40,7 +38,9 @@ export default {
       select: '',
       title: '',
       source: '1',
-      link: ''
+      link: '',
+      cateLists: [],
+      cate_name: ''
     }
   },
   methods: {
@@ -70,14 +70,22 @@ export default {
         title: this.title,
         source: this.source,
         categoryId: this.select,
+        category_name: this.cate_name,
         content: this.content,
         link: this.link
       }
+      console.log(this.category_name)
       this.$axios.post('/api/posts/create', params).then(res => {
         let data = res
         if (data.code === 200) {
           this.$message({
             type: 'success',
+            message: data.message
+          })
+          this.$router.push({ path: '/home/index' })
+        } else {
+          this.$message({
+            type: 'error',
             message: data.message
           })
         }
@@ -87,12 +95,46 @@ export default {
       this.$router.go(-1)
     },
     getValue (value) {
-      console.log(value)
       this.content = value
+    },
+    // createCategory () {
+    //   let params = {
+    //     cate_name: 'HTML',
+    //     cate_info: '运行在web端的文档结构语言',
+    //     cate_order: '3'
+    //   }
+    //   this.$axios.post('/api/categorys/create', params).then(res => {
+    //     this.$message({
+    //       type: 'info',
+    //       message: res.message
+    //     })
+    //   })
+    // }
+    getCateLists () {
+      this.$axios.get('/api/categorys/getLists').then(res => {
+        let data = res
+        if (data.code === 200) {
+          this.cateLists = data.cateLists
+        }
+      })
     }
   },
   mounted () {
     this.checkIfLogin()
+    // this.createCategory()
+    this.getCateLists()
+  },
+  watch: {
+    // 观察cate_name取值
+    select: function (val, oldval) {
+      let that = this
+      this.cateLists.map(function (index, elem) {
+        if (index._id === val) {
+          that.cate_name = index.cate_name
+        }
+      })
+      console.log(this.cate_name)
+    }
   },
   components: {
     editor
@@ -196,7 +238,7 @@ $bule: #007ac0;
           //通过定位将图标放在合适的位置
           position: absolute;
           right: 10px;
-          top: 55%;
+          top: 50%;
           transform: translateY(-50%);
           //给自定义的图标实现点击下来功能
           pointer-events: none;

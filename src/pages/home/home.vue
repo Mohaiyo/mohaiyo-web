@@ -22,10 +22,7 @@
       <!-- 文章列表模块 -->
       <div class="list-container">
         <ul class="note-list" v-if="postLists.length > 0">
-          <li class="arcticle has-img" v-for="item of postLists" :key="item._id">
-            <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="wrap-img">
-              <img src="../../assets/img/195046-3afdb53b041882d2.jpg" alt="文章简介图片" class="img">
-            </router-link>
+          <li class="arcticle" v-for="item of postLists" :key="item._id">
             <div class="content">
               <div class="author">
                 <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="avatar">
@@ -37,36 +34,15 @@
                 </div>
               </div>
               <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="title">{{ item.title }}</router-link>
-              <p class="abstract">0. 你早上起来去五星级餐厅吃早餐。如果你有足够的时间，你可以细嚼慢吞，先水果，在主食，再点心，最后来杯咖啡。 但你去的时候，发现还有五分钟就要收摊了。你该怎么办？ 1. 2...</p>
+              <p class="abstract">{{ item.content }}</p>
               <div class="meta">
-                <router-link class="collection-tag" to="#">{{ item.categoryId }}</router-link>
+                <router-link class="collection-tag" to="#">{{ item.category_name }}</router-link>
                 <router-link to="#"> <i class="icon ic-list-read"></i>{{ item.review }}</router-link>
                 <router-link to="#"> <i class="icon ic-list-comments"></i>{{ item.comments.length }}</router-link>
                 <span> <i class="icon ic-list-like"></i>{{ item.like.num }}</span>
               </div>
             </div>
           </li>
-          <!-- <li class="arcticle">
-            <div class="content">
-              <div class="author">
-                <a href="http://" class="avatar">
-                  <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="作者头像">
-                </a>
-                <div class="info">
-                  <a href="http://" class="nickname">阿哔有个帅阿呗</a>
-                  <span class="time">2个小时以前</span>
-                </div>
-              </div>
-              <a href="http://" class="title">我就是那个差点被花呗和分期折磨死的男孩子！</a>
-              <p class="abstract">2017年12月26日  星期二  小雪 文＃阿呗 这世界上凡是能和钱挂钩的东西，都不能谈情谊。 我和阿籹站在天桥上，望着这繁华的城市，灯红酒绿的，突然觉得这世界真扭曲。 耳...</p>
-              <div class="meta">
-                <a class="collection-tag" href="#">日记-书信</a>
-                <a href="http://"> <i class="icon ic-list-read"></i>2302</a>
-                <a href="http://"> <i class="icon ic-list-comments"></i>41</a>
-                <span> <i class="icon ic-list-like"></i>63</span>
-              </div>
-            </div>
-          </li> -->
         </ul>
         <div v-else class="no-data">
           <span>暂无数据~~</span>

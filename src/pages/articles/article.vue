@@ -199,8 +199,24 @@ export default {
   name: 'articlePage',
   data () {
     return {
-      msg: 'template',
-      detail: '<p>我从这里轻轻走过</p><p>故事填满了岁月</p><p>有悲伤也有喜悦</p><p>他们都说</p><p>这才是真正的生活</p><p>时光的沙漏</p><p>流完只剩下沉默</p><p>沙底下面埋葬了过往</p><p>很多场景难以言说</p><p>好像不曾拥有过</p><p>多少愁情落寞</p><p>多少悲欢离合</p><p>被遗忘在记忆的角落</p><p>从过去到现在</p><p>仿佛只是一瞬间的穿越</p><p>中途历经了什么</p><p>何必认真琢磨</p><p>反正人们只注重结果</p><p>与曾经告别</p><p>就是这么样决绝</p>'
+      detail: '',
+      arcticlId: this.$route.params.arcticlId
+    }
+  },
+  created () {
+
+  },
+  mounted () {
+    this.getDetail()
+  },
+  methods: {
+    getDetail: function () {
+      let params = {
+        id: this.arcticlId
+      }
+      this.$axios.post('/api/posts/getDetail', params).then(res => {
+        this.detail = res
+      })
     }
   }
 }
