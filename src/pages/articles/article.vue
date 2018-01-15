@@ -6,7 +6,7 @@
       <h1 class="title">26岁，辞职远行</h1>
       <div class="author">
         <a href="javascript:;" class="avatar">
-          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="作者头像">
+          <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="作者头像">
         </a>
         <div class="info">
           <span class="name">上官飞鸿</span>
@@ -46,7 +46,7 @@
       <!-- 未登录，提示登录才可以发表评论-->
       <div class="new-comments" v-show="false">
         <a href="#" class="avatar">
-          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+          <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
         </a>
         <div class="sign-container notlogin">
           <a href="#" class="signin-btn">登录</a><span>后发表评论</span>
@@ -55,7 +55,7 @@
       <!-- 如果已经登录可以发表评论 -->
       <div class="new-comments">
         <a href="#" class="avatar">
-          <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+          <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
         </a>
         <div class="sign-container haslogin">
           <textarea placeholder="写下你的评论..."></textarea>
@@ -72,7 +72,7 @@
             <div>
               <div class="author">
                 <a href="#" class="avatar">
-                  <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+                  <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
                 </a>
                 <div class="info">
                   <a href="#" class="name">徐小多的日常</a>
@@ -132,7 +132,7 @@
             <div>
               <div class="author">
                 <a href="#" class="avatar">
-                  <img src="../../assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+                  <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
                 </a>
                 <div class="info">
                   <a href="#" class="name">徐小多的日常</a>
@@ -224,7 +224,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-@import '../../assets/style/mixin';
+@import '~assets/style/mixin';
 .container{
   display: flex;
   flex-flow: column nowrap;
@@ -288,14 +288,14 @@ export default {
               vertical-align: middle;
             }
             .ic-list-read{
-              background: url('../../assets/img/read.png') no-repeat 0 -2px ;
+              background: url('~assets/img/read.png') no-repeat 0 -2px ;
               background-size: 15px;
             }
             .ic-list-comments{
-              @include bis('../../assets/img/comment.png',13px);
+              @include bis('~assets/img/comment.png',13px);
             }
             .ic-list-like{
-              @include bis('../../assets/img/like_icon.png',13px);
+              @include bis('~assets/img/like_icon.png',13px);
             }
           }
       }
@@ -332,7 +332,7 @@ export default {
             i{
               display: inline-block;
               @include wh(20px, 20px);
-              background: url('../../assets/img/like.png') no-repeat 0 3px;
+              background: url('~assets/img/like.png') no-repeat 0 3px;
               background-size: 20px;
               margin-right: 10px;
             }
@@ -367,15 +367,15 @@ export default {
               @include wh(50px, 50px);
             }
             .ic-weibo{
-              background: url('../../assets/img/weibo.png') no-repeat 10px 10px ;
+              background: url('~assets/img/weibo.png') no-repeat 10px 10px ;
               background-size: 30px 30px;
             }
             .ic-wechat{
-              background: url('../../assets/img/weixin.png') no-repeat 12px 12px ;
+              background: url('~assets/img/weixin.png') no-repeat 12px 12px ;
               background-size: 26px 26px;
             }
             .ic-qq-connect{
-              background: url('../../assets/img/qq.png') no-repeat 14px 14px ;
+              background: url('~assets/img/qq.png') no-repeat 14px 14px ;
               background-size: 22px 22px;
             }
 

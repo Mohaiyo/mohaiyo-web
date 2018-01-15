@@ -91,7 +91,7 @@
 </script>
 
 <style lang="scss" scoped>
-    @import '../../assets/style/mixin';
+    @import '~assets/style/mixin';
     .alert{
       width: 100%;
       padding:8px 16px;

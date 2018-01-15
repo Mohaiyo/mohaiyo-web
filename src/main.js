@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import axios from './config/axios.js'
 import Message from '@/components/common/message/index.js'
-import './assets/fonts/iconfont.css'
+import 'assets/fonts/iconfont.css'
 import 'nprogress/nprogress.css'
 
 Vue.config.productionTip = false

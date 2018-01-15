@@ -5,13 +5,13 @@
       <swiper :options="swiperOption" ref="mySwiper" class="carousel">
         <!-- slides -->
         <swiper-slide>
-          <img src="../../assets/img/986f00c9a5ab4406b143b8985f925258bba06b9d.jpg" alt="" class="slide-img">
+          <img src="~assets/img/986f00c9a5ab4406b143b8985f925258bba06b9d.jpg" alt="" class="slide-img">
         </swiper-slide>
         <swiper-slide>
-          <img src="../../assets/img/d3935eb4e5c1859a3ffc564ccad0871ac477795f.jpg" alt="" class="slide-img">
+          <img src="~assets/img/d3935eb4e5c1859a3ffc564ccad0871ac477795f.jpg" alt="" class="slide-img">
         </swiper-slide>
         <swiper-slide>
-          <img src="../../assets/img/8f6f175fdd264241c93152431e25c4a46c2434ee.jpg" alt="" class="slide-img">
+          <img src="~assets/img/8f6f175fdd264241c93152431e25c4a46c2434ee.jpg" alt="" class="slide-img">
         </swiper-slide>
         <!-- Optional controls -->
         <div class="swiper-pagination"  slot="pagination"></div>
@@ -26,7 +26,7 @@
             <div class="content">
               <div class="author">
                 <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="avatar">
-                  <img src="../../assets/img/150f2089-9aab-4873-8e06-530c8a1bc14a.png" alt="作者头像">
+                  <img src="~assets/img/150f2089-9aab-4873-8e06-530c8a1bc14a.png" alt="作者头像">
                 </router-link>
                 <div class="info">
                   <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="nickname">{{ item.author.username }}</router-link>
@@ -53,7 +53,7 @@
       <div class="board">
         <a href="#" class="topic-item border-o">
           <span class="avatar-link">
-            <img src="../../assets/img/react.png" class="avatar-image">
+            <img src="~assets/img/react.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">React</h3>
@@ -63,7 +63,7 @@
         </a>
         <a href="#" class="topic-item">
           <span class="avatar-link">
-            <img src="../../assets/img/vue.png" class="avatar-image">
+            <img src="~assets/img/vue.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">Vue</h3>
@@ -73,7 +73,7 @@
         </a>
         <a href="#" class="topic-item">
           <span class="avatar-link">
-            <img src="../../assets/img/es6.png" class="avatar-image">
+            <img src="~assets/img/es6.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">es6</h3>
@@ -83,7 +83,7 @@
         </a>
         <a href="#" class="topic-item">
           <span class="avatar-link">
-            <img src="../../assets/img/nodejs.png" class="avatar-image">
+            <img src="~assets/img/nodejs.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">Nodejs</h3>
@@ -93,7 +93,7 @@
         </a>
         <a href="#" class="topic-item">
           <span class="avatar-link">
-            <img src="../../assets/img/js.png" class="avatar-image">
+            <img src="~assets/img/js.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">Js</h3>
@@ -103,7 +103,7 @@
         </a>
         <a href="#" class="topic-item">
           <span class="avatar-link">
-            <img src="../../assets/img/html.png" class="avatar-image">
+            <img src="~assets/img/html.png" class="avatar-image">
           </span>
           <div class="topic-descr">
             <h3 class="topic-title">HTML</h3>
@@ -182,7 +182,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-  @import '../../assets/style/mixin';
+  @import '~assets/style/mixin';
   @media (min-width:320px) and (max-width:767px){
     .container{
       width:100%;
@@ -378,15 +378,15 @@ export default {
               vertical-align: middle;
             }
             .ic-list-read{
-              background: url('../../assets/img/read.png') no-repeat 0 -2px ;
+              background: url('~assets/img/read.png') no-repeat 0 -2px ;
               background-size: 15px;
             }
             .ic-list-comments{
-              background: url('../../assets/img/comment.png') no-repeat 0 0 ;
+              background: url('~assets/img/comment.png') no-repeat 0 0 ;
               background-size: 13px;
             }
             .ic-list-like{
-              background: url('../../assets/img/like_icon.png') no-repeat 0 0 ;
+              background: url('~assets/img/like_icon.png') no-repeat 0 0 ;
               background-size: 13px;
             }
           }
@@ -450,7 +450,7 @@ export default {
       .icon-arrow-right{
         @include absTR(12px,5px);
         @include wh(20px,20px);
-        @include bis('../../assets/img/arrow_down.png',20px);
+        @include bis('~assets/img/arrow_down.png',20px);
       }
     }
   }

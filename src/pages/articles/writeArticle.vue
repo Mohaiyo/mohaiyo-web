@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import editor from '@/components/common/editor'
+import editor from 'components/common/editor'
 export default {
   name: 'writeArcticle',
   data () {

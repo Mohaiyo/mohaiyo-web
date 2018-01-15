@@ -31,7 +31,7 @@
         <!-- 登录之后 -->
         <div class="user" v-show="hasSignIn">
           <a href="http://" class="avatar">
-            <img src="../../assets/img/avatar.png" alt="avatar" :style="{width:'52px',height:'52px',borderRadius:'25px'}"/>
+            <img src="~assets/img/avatar.png" alt="avatar" :style="{width:'52px',height:'52px',borderRadius:'25px'}"/>
           </a>
           <div class="drowdown-menu">
             <ul class="drowdown-list">
@@ -95,7 +95,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-  @import '../../assets/style/mixin';
+  @import '~assets/style/mixin';
   .navbar{
     margin-bottom: 20px;
     border: 1px solid transparent;
@@ -118,7 +118,7 @@ export default {
           height: 56px;
           padding: 14px 25px 15px 30px;
           flex:1;
-          background:url('../../assets/img/gongfang_logo.png') no-repeat 60px 3px;
+          background:url('~assets/img/gongfang_logo.png') no-repeat 60px 3px;
           background-size: 50px 50px;
         }
        }
@@ -153,7 +153,7 @@ export default {
               cursor: pointer;
               @include wh(30px, 30px);
               margin: 0 15px;
-              @include bis('../../assets/img/menu.png',30px);
+              @include bis('~assets/img/menu.png',30px);
             }
             .menu-icon{
               .sub-menu{
@@ -203,7 +203,7 @@ export default {
             display: inline-block;
             @include wh(32px,32px);
             margin-left: -40px;
-            background:url('../../assets/img/search.png') no-repeat 0 0;
+            background:url('~assets/img/search.png') no-repeat 0 0;
           }
         }
 
@@ -252,7 +252,7 @@ export default {
           .icon{
             display: inline-block;
             @include wh(20px, 20px);
-            @include bis('../../assets/img/write.png', 20px);
+            @include bis('~assets/img/write.png', 20px);
           }
           span{
             color: #fff;
@@ -309,18 +309,18 @@ export default {
             @include wh(30px, 30px);
           }
           .home-icon{
-            @include bis('../../assets/img/home.png',26px);
+            @include bis('~assets/img/home.png',26px);
           }
           .collect-icon{
-            background:url('../../assets/img/collect.png') no-repeat 3px 5px;
+            background:url('~assets/img/collect.png') no-repeat 3px 5px;
             background-size: 20px 20px;
           }
           .like-icon{
-            background:url('../../assets/img/like.png') no-repeat 3px 5px;
+            background:url('~assets/img/like.png') no-repeat 3px 5px;
             background-size: 20px 20px;
           }
           .signOut-icon{
-            background:url('../../assets/img/sign-out.png') no-repeat 3px 5px;
+            background:url('~assets/img/sign-out.png') no-repeat 3px 5px;
             background-size: 20px 20px;
           }
         }

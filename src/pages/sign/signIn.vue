@@ -2,7 +2,7 @@
   <div class="container">
     <div class="logo">
       <a href="/">
-        <img src="../../assets/img/gongfang_logo.png" alt="logo">
+        <img src="~assets/img/gongfang_logo.png" alt="logo">
       </a>
     </div>
     <section class="sign-up">
@@ -115,7 +115,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
-  @import '../../assets/style/mixin';
+  @import '~assets/style/mixin';
   .logo{
     @include absTL(20px, 40px)
   }
@@ -177,19 +177,19 @@ export default {
           @include sc(18px, #969696);
         }
         .ic-user{
-          background: url('../../assets/img/avatar_sign.png') no-repeat -4px 0px;
+          background: url('~assets/img/avatar_sign.png') no-repeat -4px 0px;
           background-size: 25px;
         }
         .ic-email{
-          background: url('../../assets/img/email.png') no-repeat 0px 4px;
+          background: url('~assets/img/email.png') no-repeat 0px 4px;
           background-size: 18px;
         }
         .ic-psw{
-          background: url('../../assets/img/password.png') no-repeat 0px 4px;
+          background: url('~assets/img/password.png') no-repeat 0px 4px;
           background-size: 18px;
         }
         .ic-ag-psw{
-          background: url('../../assets/img/Confirm_password.png') no-repeat 0px 4px;
+          background: url('~assets/img/Confirm_password.png') no-repeat 0px 4px;
           background-size: 18px;
         }
       }
@@ -245,15 +245,15 @@ export default {
                 @include wh(50px, 50px);
               }
               .ic-weibo{
-                background: url('../../assets/img/weibo.png') no-repeat 10px 10px ;
+                background: url('~assets/img/weibo.png') no-repeat 10px 10px ;
                 background-size: 30px 30px;
               }
               .ic-wechat{
-                background: url('../../assets/img/weixin.png') no-repeat 12px 12px ;
+                background: url('~assets/img/weixin.png') no-repeat 12px 12px ;
                 background-size: 26px 26px;
               }
               .ic-qq-connect{
-                background: url('../../assets/img/qq.png') no-repeat 14px 14px ;
+                background: url('~assets/img/qq.png') no-repeat 14px 14px ;
                 background-size: 22px 22px;
               }
 

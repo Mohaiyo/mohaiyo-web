@@ -6,7 +6,7 @@
 import axios from 'axios'
 import qs from 'qs'
 import NProgress from 'nprogress'
-import Message from '@/components/common/message/index.js'
+import Message from 'components/common/message/index.js'
 
 const baseURL = '/'
 // 请求头配置
