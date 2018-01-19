@@ -37,7 +37,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
-          warnings: false
+          warnings: false,
+          drop_console: true
         }
       },
       sourceMap: config.build.productionSourceMap,
@@ -124,6 +125,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
+// 开启gzip可以在构建的时候就先完成压缩，而不是让服务器去做这件事，可以加快客户端的响应速度
 if (config.build.productionGzip) {
   const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
