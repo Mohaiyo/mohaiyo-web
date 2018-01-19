@@ -1,6 +1,11 @@
-/**
- * Create By Mohaiyo 2017-10-23
+/*
+ * @Author: mohaiyo
+ * @gitHub: 'https://github.com/Mohaiyo'
+ * @Date: 2018-01-19 11:35:57
+ * @Last Modified by:   mohaiyo
+ * @Last Modified time: 2018-01-19 11:35:57
  */
+
 'use strict'
 // import { Toast,Indicator } from 'mint-ui'
 import axios from 'axios'
