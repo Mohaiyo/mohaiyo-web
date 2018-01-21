@@ -97,19 +97,19 @@ export default {
     getValue (value) {
       this.content = value
     },
-    // createCategory () {
-    //   let params = {
-    //     cate_name: 'HTML',
-    //     cate_info: '运行在web端的文档结构语言',
-    //     cate_order: '3'
-    //   }
-    //   this.$axios.post('/api/categorys/create', params).then(res => {
-    //     this.$message({
-    //       type: 'info',
-    //       message: res.message
-    //     })
-    //   })
-    // }
+    createCategory () {
+      let params = {
+        cate_name: 'mongodb',
+        cate_info: 'noSql 数据库',
+        cate_order: '5'
+      }
+      this.$axios.post('/api/categorys/create', params).then(res => {
+        this.$message({
+          type: 'info',
+          message: res.message
+        })
+      })
+    },
     getCateLists () {
       this.$axios.get('/api/categorys/getLists').then(res => {
         let data = res

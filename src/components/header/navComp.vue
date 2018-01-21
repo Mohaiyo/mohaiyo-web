@@ -88,6 +88,7 @@ export default {
           sessionStorage.setItem('hasLogin', false)
         }
       })
+      this.$router.push({ path: '/home/index', params: {} })
     }
   }
 }
@@ -337,7 +338,7 @@ export default {
     position: fixed;
     right: 0;
     left: 0;
-    z-index: 1030;
+    z-index: 1999;
   }
   @media (min-width:320px){
     max-width: auto;

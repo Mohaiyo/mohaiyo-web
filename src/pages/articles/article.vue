@@ -3,72 +3,133 @@
     <!-- 文章内容 -->
     <section class="article">
       <!-- 标题 -->
-      <h1 class="title">26岁，辞职远行</h1>
+      <h1 class="title">{{ detail.title }}</h1>
       <div class="author">
         <a href="javascript:;" class="avatar">
           <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="作者头像">
         </a>
         <div class="info">
-          <span class="name">上官飞鸿</span>
+          <span class="name">{{ author.username }}</span>
           <div class="meta">
-            <span class="collection-tag">日记-书信</span>
-            <span> <i class="icon ic-list-read"></i>2302</span>
-            <span> <i class="icon ic-list-comments"></i>41</span>
-            <span> <i class="icon ic-list-like"></i>63</span>
-            <span class="publish-time">2017.12.26 18:35:23</span>
+            <span class="collection-tag">{{ detail.category_name }}</span>
+            <span> <i class="icon ic-list-read"></i>{{ detail.review }}</span>
+            <span> <i class="icon ic-list-comments"></i>{{ commentsNum }}</span>
+            <span> <i class="icon ic-list-like"></i>{{ like.num }}</span>
+            <span class="publish-time">{{ formatTime(detail.createdAt) }}</span>
           </div>
         </div>
       </div>
-      <div class="article-detail" v-html="detail"></div>
+      <mavon-editor style="height: 100%" v-model="detail.content" :subfield = 'false'  :editable= 'false' :scrollStyle = 'false' :toolbarsFlag='false' default_open='preview'></mavon-editor>
+      <!-- <div class="article-detail" v-html="detail.content"></div> -->
     </section>
     <!-- 分享点赞 -->
     <section class="meta-bottom">
-      <div class="like">
+      <div class="like" @click="likeHandler">
         <div class="btn like-group">
           <div class="btn-like">
-            <a href="#"><i class="like-icon"></i>喜欢</a>
+            <a><i class="like-icon"></i>喜欢</a>
           </div>
           <div class="like-count">
-            <span>520</span>
+            <span>{{ like.num }}</span>
           </div>
         </div>
       </div>
       <div class="share">
         <ul>
-          <li><a class="weibo" target="_blank" href="#"><i class="iconfont ic-weibo"></i></a></li>
-          <li><a class="weixin" target="_blank" href="#"><i class="iconfont ic-wechat"></i></a></li>
-          <li><a class="qq" target="_blank" href="#"><i class="iconfont ic-qq-connect"></i></a></li>
+          <li><a class="weibo" @click="tipHandler" ><i class="iconfont ic-weibo"></i></a></li>
+          <li><a class="weixin" @click="tipHandler" ><i class="iconfont ic-wechat"></i></a></li>
+          <li><a class="qq" @click="tipHandler" ><i class="iconfont ic-qq-connect"></i></a></li>
         </ul>
       </div>
     </section>
     <!-- 评论 -->
     <section class="comments">
       <!-- 未登录，提示登录才可以发表评论-->
-      <div class="new-comments" v-show="false">
+      <div class="new-comments" v-if="hasLogin === 'false'">
         <a href="#" class="avatar">
           <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
         </a>
         <div class="sign-container notlogin">
-          <a href="#" class="signin-btn">登录</a><span>后发表评论</span>
+          <router-link to="/sign_in" class="signin-btn">登录</router-link><span>后发表评论</span>
         </div>
       </div>
       <!-- 如果已经登录可以发表评论 -->
-      <div class="new-comments">
+      <div class="new-comments" v-else>
         <a href="#" class="avatar">
           <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
         </a>
         <div class="sign-container haslogin">
-          <textarea placeholder="写下你的评论..."></textarea>
+          <textarea placeholder="写下你的评论..." v-model="comments"></textarea>
           <div class="comment-operation">
-            <a href="#" class="cancel">取消</a>
-            <a href="#" class="confirm">发送</a>
+            <a @click="cancel" class="cancel">取消</a>
+            <a @click="sendComment" class="confirm">发送</a>
           </div>
         </div>
       </div>
       <!-- 评论列表   -->
       <div class="comments-list">
         <ul>
-          <li class="comment-item">
+          <li class="comment-item" v-for="i of commentsList" :key="i._id">
+            <div>
+              <div class="author">
+                <a href="#" class="avatar">
+                  <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
+                </a>
+                <div class="info">
+                  <a href="#" class="name">{{ i.author.username}}</a>
+                  <div class="meta">
+                    <span class="comment-time">{{ formatTime(i.createdAt) }}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="comment-wrap">
+                <p class="comment-descr">{{ i.contents }}</p>
+                <!-- <div class="tool-group">
+                  <a href="#" class="comment-like">
+                    <i class="icon-like iconfont"></i>
+                    <span>8人赞</span>
+                  </a>
+                  <a href="#" class="comment-reply">
+                    <i class="icon-comment iconfont"></i>
+                    <span>回复</span>
+                  </a>
+                </div> -->
+              </div>
+            </div>
+            <!-- <ul class="sub-comment-list">
+              <li class="sub-comment">
+                <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>顶你个肺啊！！！！</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
+                  </a>
+                </div>
+              </li>
+              <li class="sub-comment">
+                <p>
+                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>+1</span>
+                </p>
+                <div class="sub-tool-group">
+                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
+                  <a href="#" class="sub-comment-reply">
+                    <i class="iconfont icon-comment"></i>
+                    <span class="comment">回复</span>
+                  </a>
+                </div>
+              </li>
+              <div class="sub-comment more-comment">
+                <a class="add-comment-btn">
+                  <i class="iconfont icon-write"></i>
+                  <span>添加新评论</span>
+                </a>
+              </div>
+            </ul> -->
+          </li>
+          <!-- <li class="comment-item">
             <div>
               <div class="author">
                 <a href="#" class="avatar">
@@ -127,67 +188,7 @@
                 </a>
               </div>
             </ul>
-          </li>
-          <li class="comment-item">
-            <div>
-              <div class="author">
-                <a href="#" class="avatar">
-                  <img src="~assets/img/4ed54fce-9d7d-4788-ab34-f6c955758597.png" alt="用户头像">
-                </a>
-                <div class="info">
-                  <a href="#" class="name">徐小多的日常</a>
-                  <div class="meta">
-                    <span class="comment-time">2017.12.27 10:08:00</span>
-                  </div>
-                </div>
-              </div>
-              <div class="comment-wrap">
-                <p class="comment-descr">确实是干货，但是太干了，不会写代码啊</p>
-                <div class="tool-group">
-                  <a href="#" class="comment-like">
-                    <i class="icon-like iconfont"></i>
-                    <span>8人赞</span>
-                  </a>
-                  <a href="#" class="comment-reply">
-                    <i class="icon-comment iconfont"></i>
-                    <span>回复</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <ul class="sub-comment-list">
-              <li class="sub-comment">
-                <p>
-                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>顶你个肺啊！！！！</span>
-                </p>
-                <div class="sub-tool-group">
-                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
-                  <a href="#" class="sub-comment-reply">
-                    <i class="iconfont icon-comment"></i>
-                    <span class="comment">回复</span>
-                  </a>
-                </div>
-              </li>
-              <li class="sub-comment">
-                <p>
-                  <a href="#" class="comment-author">犀牛角_sun</a>：<span>+1</span>
-                </p>
-                <div class="sub-tool-group">
-                  <span class="sub-comment-time">2017.12.27 10:08:00</span>
-                  <a href="#" class="sub-comment-reply">
-                    <i class="iconfont icon-comment"></i>
-                    <span class="comment">回复</span>
-                  </a>
-                </div>
-              </li>
-              <div class="sub-comment more-comment">
-                <a class="add-comment-btn">
-                  <i class="iconfont icon-write"></i>
-                  <span>添加新评论</span>
-                </a>
-              </div>
-            </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </section>
@@ -195,16 +196,25 @@
 </template>
 
 <script>
+import moment from 'moment'
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 export default {
   name: 'articlePage',
   data () {
     return {
-      detail: '',
-      arcticlId: this.$route.params.arcticlId
+      detail: {},
+      author: {},
+      commentsNum: '',
+      like: {},
+      arcticlId: this.$route.params.arcticlId,
+      hasLogin: sessionStorage.getItem('hasLogin'),
+      comments: '',
+      commentsList: []
     }
   },
-  created () {
-
+  components: {
+    mavonEditor
   },
   mounted () {
     this.getDetail()
@@ -215,14 +225,64 @@ export default {
         id: this.arcticlId
       }
       this.$axios.post('/api/posts/getDetail', params).then(res => {
-        this.detail = res
+        this.detail = res.postdetail.data
+        this.author = res.postdetail.data.author
+        this.commentsNum = res.postdetail.data.comments.length
+        this.like = res.postdetail.data.like
+        this.commentsList = res.postdetail.comments
       })
+    },
+    formatTime (time) {
+      return moment(time).format('YYYY-MM-DD HH:mm:ss')
+    },
+    tipHandler () {
+      this.$message({
+        type: 'warning',
+        message: '诶呀，不要点人家了，我还在开发呢！'
+      })
+    },
+    likeHandler () {
+      let param = {
+        id: this.detail._id
+      }
+      this.$axios.post('/api/posts/like', param).then(res => {
+        if (res.code === 200) {
+          this.$message({
+            type: 'success',
+            message: res.message
+          })
+          this.getDetail()
+        }
+      })
+    },
+    cancel () {
+      this.$router.go(-1)
+    },
+    sendComment () {
+      if (!this.comments) {
+        this.$message({
+          type: 'error',
+          message: '你还没输入的你的评论内容呢！'
+        })
+        return false
+      }
+      let params = {
+        article_id: this.arcticlId,
+        contents: this.comments
+      }
+      this.$axios.post('/api/comments/new', params).then(res => {
+        this.$message({
+          type: 'success',
+          message: '发表评论成功！'
+        })
+      })
+      this.comments = ''
+      this.getDetail()
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang='scss'>
 @import '~assets/style/mixin';
 .container{
@@ -473,6 +533,7 @@ export default {
         flex-flow: row nowrap;
         .cancel{
           padding: 8px 18px;
+          cursor: pointer;
           @include sc(16px,#969696);
         }
         .confirm{

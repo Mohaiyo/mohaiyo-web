@@ -36,9 +36,9 @@
               <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="title">{{ item.title }}</router-link>
               <p class="abstract">{{ item.content }}</p>
               <div class="meta">
-                <router-link class="collection-tag" to="#">{{ item.category_name }}</router-link>
-                <router-link to="#"> <i class="icon ic-list-read"></i>{{ item.review }}</router-link>
-                <router-link to="#"> <i class="icon ic-list-comments"></i>{{ item.comments.length }}</router-link>
+                <router-link class="collection-tag" :to="{ name: 'articlePage', params: { arcticlId: item._id }}">{{ item.category_name }}</router-link>
+                <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}"> <i class="icon ic-list-read"></i>{{ item.review }}</router-link>
+                <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}"> <i class="icon ic-list-comments"></i>{{ item.comments.length }}</router-link>
                 <span> <i class="icon ic-list-like"></i>{{ item.like.num }}</span>
               </div>
             </div>
@@ -170,7 +170,12 @@ export default {
         pageSize: 10
       }
       this.$axios.get('/api/posts', params).then(res => {
-        this.postLists = res.data.postLists
+        this.postLists = res.data.postLists.map(item => {
+          if (item.content.length > 300) {
+            item.content = item.content.substr(0, 170) + '...'
+          }
+          return item
+        })
       })
     },
     formatTime (time) {
@@ -187,6 +192,8 @@ export default {
     .container{
       width:100%;
       padding:78px 20px 20px;
+      position: relative;
+      z-index: 1110;
       .main{
         margin:0 auto;
         width: 100%;

@@ -60,7 +60,7 @@ function checkStatus (res) {
   // 因为前面我们把错误扶正了, 不然像 404, 500 这样的错误是走不到这里的
   return {
     code: -404,
-    msg: '网络错误，请耐心等候！'
+    message: '网络错误，请耐心等候！'
   }
 }
 // checkCode
@@ -68,7 +68,7 @@ function checkCode (res) {
   // 如果code异常(这里已经包括网络错误，服务器错误，后端抛出的错误)，可以弹出一个错误提示，告诉用户
   if (res.code !== 200) {
     Message({
-      message: res.msg,
+      message: res.message,
       type: 'error',
       showClose: true
     })

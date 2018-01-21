@@ -36,9 +36,9 @@
         <div class="more-sign">
           <h6>社交帐号注册</h6>
           <ul>
-            <li @click="tipHandler"><a class="weibo" href="avascript::"><i class="iconfont ic-weibo"></i></a></li>
-            <li @click="tipHandler"><a class="weixin" href="avascript::"><i class="iconfont ic-wechat"></i></a></li>
-            <li @click="tipHandler"><a class="qq" href="avascript::"><i class="iconfont ic-qq-connect"></i></a></li>
+            <li @click="tipHandler"><a class="weibo" href="avascript:"><i class="iconfont ic-weibo"></i></a></li>
+            <li @click="tipHandler"><a class="weixin" href="avascript:"><i class="iconfont ic-wechat"></i></a></li>
+            <li @click="tipHandler"><a class="qq" href="avascript:"><i class="iconfont ic-qq-connect"></i></a></li>
           </ul>
         </div>
       </div>
@@ -78,10 +78,11 @@ export default {
         password: this.password
       }
       this.$axios.post('api/signup', params).then(res => {
-        let data = res
-        if (data.code === 200) {
-          this.$router.push({ path: '/home/index', params: {} })
-        }
+        // let data = res
+        // axios已经做了处理了 也就是说返回的数据code肯定是200的 否则走不到这里 所以可以去掉判断
+        // if (data.code === 200) {
+        this.$router.push({ path: '/home/index', params: {} })
+        // }
       })
     },
     tipHandler () {
