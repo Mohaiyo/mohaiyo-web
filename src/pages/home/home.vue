@@ -20,98 +20,9 @@
         <!-- <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
       </swiper>
       <!-- 文章列表模块 -->
-      <div class="list-container">
-        <ul class="note-list" v-if="postLists.length > 0">
-          <li class="arcticle" v-for="item of postLists" :key="item._id">
-            <div class="content">
-              <div class="author">
-                <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="avatar">
-                  <img src="~assets/img/150f2089-9aab-4873-8e06-530c8a1bc14a.png" alt="作者头像">
-                </router-link>
-                <div class="info">
-                  <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="nickname">{{ item.author.username }}</router-link>
-                  <span class="time">{{ formatTime(item.createdAt) }}</span>
-                </div>
-              </div>
-              <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}" class="title">{{ item.title }}</router-link>
-              <p class="abstract">{{ item.content }}</p>
-              <div class="meta">
-                <router-link class="collection-tag" :to="{ name: 'articlePage', params: { arcticlId: item._id }}">{{ item.category_name }}</router-link>
-                <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}"> <i class="icon ic-list-read"></i>{{ item.review }}</router-link>
-                <router-link :to="{ name: 'articlePage', params: { arcticlId: item._id }}"> <i class="icon ic-list-comments"></i>{{ item.comments.length }}</router-link>
-                <span> <i class="icon ic-list-like"></i>{{ item.like.num }}</span>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div v-else class="no-data">
-          <span>暂无数据~~</span>
-        </div>
-      </div>
+      <article-list :post-lists="postLists"></article-list>
     </section>
     <section class="side-bar">
-      <div class="board">
-        <a href="#" class="topic-item border-o">
-          <span class="avatar-link">
-            <img src="~assets/img/react.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">React</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="~assets/img/vue.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">Vue</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="~assets/img/es6.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">es6</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="~assets/img/nodejs.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">Nodejs</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="~assets/img/js.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">Js</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-        <a href="#" class="topic-item">
-          <span class="avatar-link">
-            <img src="~assets/img/html.png" class="avatar-image">
-          </span>
-          <div class="topic-descr">
-            <h3 class="topic-title">HTML</h3>
-            <p class="topic-meta">3 篇文章</p>
-          </div>
-          <i class="icon icon-arrow-right"></i>
-        </a>
-      </div>
     </section>
   </div>
 </template>
@@ -119,7 +30,7 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-import moment from 'moment'
+import articleList from 'components/common/articleList'
 export default {
   name: 'home',
   data () {
@@ -161,7 +72,8 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    articleList
   },
   methods: {
     fetchIndexData () {
@@ -177,9 +89,6 @@ export default {
           return item
         })
       })
-    },
-    formatTime (time) {
-      return moment(time).format('YYYY-MM-DD HH:mm:ss')
     }
   }
 }
