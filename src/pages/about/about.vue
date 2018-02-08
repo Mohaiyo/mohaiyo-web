@@ -36,8 +36,8 @@
         <div class="website-descr">
           <p>本站服务端采用nodejs + express + mongoDB 搭建, 客户端采用 Vue + sass + webpack 搭建</p>
           <p>网站分成前台和后台, 前台采用SPA模式, 后台还在开发中</p>
-          <p>主要功能包括: 登录, 用户, 分类, 文章, 评论, 文章点赞</p>
-          <p>主要技术栈: express,nodejs, mongoose, Vue, vue2-router, webpack, babel, eslint</p>
+          <p>主要功能包括: 注册登录, 用户, 分类, 文章, 评论, 文章点赞等</p>
+          <p>主要技术栈: express,nodejs, mongoose, Vue, vue-router, vux, webpack, babel, eslint等</p>
         </div>
       </div>
     </section>
