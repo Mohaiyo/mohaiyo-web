@@ -17,19 +17,19 @@
         <form class="new_user" @submit.prevent="submit">
           <div class="input-wrap">
             <i class="input-icon ic-user"></i>
-            <input type="text" class="radius-top" placeholder="起个帅点的昵称" maxlength="20" v-model="username">
+            <input type="text" class="radius-top" placeholder="起个帅点的昵称" maxlength="20" v-model.trim="username">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-email"></i>
-            <input type="text" placeholder="邮箱是必须的" maxlength="40" v-model="email">
+            <input type="text" placeholder="邮箱是必须的" maxlength="40" v-model.trim="email">
           </div>
           <div class="input-wrap no-radius">
             <i class="input-icon ic-psw"></i>
-            <input type="password" placeholder="你要输的密码" maxlength="20" v-model="password">
+            <input type="password" placeholder="你要输的密码" maxlength="20" v-model.trim="password">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
-            <input type="password" class="radius-bottom" placeholder="密码是否一致" maxlength="20" v-model="agPassword">
+            <input type="password" class="radius-bottom" placeholder="密码是否一致" maxlength="20" v-model.trim="agPassword">
           </div>
           <input type="submit" value="点我注册" class="submit-btn">
         </form>

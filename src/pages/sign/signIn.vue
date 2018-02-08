@@ -17,15 +17,15 @@
         <form class="new_user" @submit.prevent="submit">
           <div class="input-wrap">
             <i class="input-icon ic-user"></i>
-            <input type="text" class="radius-top" placeholder="请输入用户名" maxlength="20" v-model="username">
+            <input type="text" class="radius-top" placeholder="请输入用户名" maxlength="20" v-model.trim="username">
           </div>
           <div class="input-wrap no-radius">
             <i class="input-icon ic-psw"></i>
-            <input type="password" placeholder="你要输的密码" maxlength="20" v-model="password">
+            <input type="password" placeholder="你要输的密码" maxlength="20" v-model.trim="password">
           </div>
           <div class="input-wrap">
             <i class="input-icon ic-ag-psw"></i>
-            <input type="text" class="radius-bottom" placeholder="请输入验证码" maxlength="4" v-model="cap_code">
+            <input type="text" class="radius-bottom" placeholder="请输入验证码" maxlength="4" v-model.trim="cap_code">
             <span class="sms-code" @click="getCaptchas">
               <img :src="smsCode" alt="验证码">
             </span>
