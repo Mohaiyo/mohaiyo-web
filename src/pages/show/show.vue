@@ -2,16 +2,24 @@
   <div class="container">
     <tabs :options="{ useUrlFragment: false }">
       <tab name="闲钱宝">
-        闲钱宝简介以及连接和图片
+        <a href="https://www.51xqb.com/">
+          <img src="~assets/img/xqb.png" alt="xqb">
+        </a>
       </tab>
       <tab name="投融通运管系统">
-        投融通简介以及连接和图片
+        <a href="http://103.243.255.169:10002">
+          <img src="~assets/img/CIAFinside.png" alt="CIAFinside">
+        </a>
       </tab>
       <tab name="CMB部门信息管理系统">
-        CMB部门信息管理系统简介以及连接和图片
+        <img src="~assets/img/rank.jpg" alt="rank" style="width:31%">
+        <img src="~assets/img/cmb_gm.jpg" alt="cmb_gm" style="width:31%">
+        <img src="~assets/img/cmb_quanlity.jpg" alt="cmb_quanlity" style="width:31%">
       </tab>
       <tab name="投融通平台">
-        通融通平台简介以及连接和图片
+        <a href="https://103.243.255.136/index">
+          <img src="~assets/img/ciafweb.png" alt="ciafweb">
+        </a>
       </tab>
     </tabs>
   </div>
