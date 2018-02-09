@@ -23,6 +23,7 @@ export default {
   },
   mounted () {
     this.fetchHotData()
+    this.queryCateLists()
   },
   components: {
     articleList,
@@ -41,6 +42,12 @@ export default {
           }
           return item
         })
+      })
+    },
+    queryCateLists () {
+      let params = {}
+      this.$axios.get('/api/categorys/getLists', params).then(res => {
+        this.cateLists = res.cateLists
       })
     }
   }

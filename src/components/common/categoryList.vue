@@ -1,16 +1,20 @@
 <template>
   <div class="board">
-    <a href="#" class="topic-item border-o">
+    <a class="topic-item border-o" v-for="(item, index) of cateLists" :key="index" v-if="cateLists.length > 0" @click="getCateLists(item._id)">
       <span class="avatar-link">
         <img src="~assets/img/circel_cate.png" class="avatar-image">
       </span>
       <div class="topic-descr">
-        <h3 class="topic-title">React</h3>
+        <h3 class="topic-title">{{ item.cate_name }}</h3>
         <p class="topic-meta">3 篇文章</p>
       </div>
       <i class="icon icon-arrow-right"></i>
     </a>
-    <a href="#" class="topic-item">
+    <div class="no-data" else>
+      暂无数据
+    </div>
+
+    <!-- <a href="#" class="topic-item">
       <span class="avatar-link">
         <img src="~assets/img/circel_cate.png" class="avatar-image">
       </span>
@@ -59,7 +63,7 @@
         <p class="topic-meta">20 篇文章</p>
       </div>
       <i class="icon icon-arrow-right"></i>
-    </a>
+    </a> -->
   </div>
 </template>
 
@@ -75,7 +79,19 @@ export default {
     cateLists: {
       type: Array,
       // required: true,
-      default: []
+      default: function () {
+        return []
+      }
+    }
+  },
+  methods: {
+    getCateLists (id) {
+      this.$emit('getCateLists', id)
+    }
+  },
+  watch: {
+    cateLists: (newValue, oldValue) => {
+      this.cateLists = newValue
     }
   }
 }
@@ -134,6 +150,11 @@ export default {
         @include absTR(12px,5px);
         @include wh(20px,20px);
         @include bis('~assets/img/arrow_down.png',20px);
+      }
+      .no-data{
+        line-height:228px;
+        text-align:center;
+        @include sc(20px, #007ac9);
       }
     }
   }

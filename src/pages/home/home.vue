@@ -23,7 +23,7 @@
       <article-list :post-lists="postLists"></article-list>
     </section>
     <section class="side-bar">
-      <category-list :cate-lists="cateLists"></category-list>
+      <category-list :cate-lists="cateLists" @getCateLists="getCateLists(id)"></category-list>
     </section>
   </div>
 </template>
@@ -67,6 +67,7 @@ export default {
   },
   mounted () {
     this.fetchIndexData()
+    this.queryCateLists()
     // console.log(this.$root)
     // current swiper instance
     // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
@@ -86,12 +87,37 @@ export default {
         pageSize: 10
       }
       this.$axios.get('/api/posts', params).then(res => {
-        this.postLists = res.data.postLists.map(item => {
-          if (item.content.length > 300) {
-            item.content = item.content.substr(0, 170) + '...'
-          }
-          return item
-        })
+        if (res.code === 200) {
+          this.postLists = res.data.postLists.map(item => {
+            if (item.content.length > 240) {
+              item.content = item.content.substr(0, 240) + '...'
+            }
+            return item
+          })
+        }
+      })
+    },
+    queryCateLists () {
+      let params = {}
+      this.$axios.get('/api/categorys/getLists', params).then(res => {
+        this.cateLists = res.cateLists
+      })
+    },
+    getCateLists (id) {
+      let params = {
+        pageNo: 1,
+        pageSize: 10,
+        categoryId: id
+      }
+      this.$axios.get('/api/posts', params).then(res => {
+        if (res.code === 200) {
+          this.postLists = res.data.postLists.map(item => {
+            if (item.content.length > 240) {
+              item.content = item.content.substr(0, 240) + '...'
+            }
+            return item
+          })
+        }
       })
     }
   }

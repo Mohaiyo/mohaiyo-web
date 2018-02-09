@@ -99,9 +99,9 @@ export default {
     },
     createCategory () {
       let params = {
-        cate_name: 'mongodb',
-        cate_info: 'noSql 数据库',
-        cate_order: '5'
+        cate_name: 'CSS',
+        cate_info: 'css是一种层叠样式表',
+        cate_order: '2'
       }
       this.$axios.post('/api/categorys/create', params).then(res => {
         this.$message({
