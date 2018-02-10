@@ -72,7 +72,7 @@ export default {
       this.menuShow = !this.menuShow
     },
     getUserInfo () {
-      this.$axios.get('/api/user/getUserInfo', {}).then(res => {
+      this.$axios.get('/user/getUserInfo', {}).then(res => {
         let data = res
         if (data.code === 200) {
           this.hasSignIn = data.login
@@ -81,7 +81,7 @@ export default {
       })
     },
     signOut () {
-      this.$axios.get('/api/user/signout', {}).then(res => {
+      this.$axios.get('/user/signout', {}).then(res => {
         let data = res
         if (data.code === 200) {
           this.hasSignIn = false

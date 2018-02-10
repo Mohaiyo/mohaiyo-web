@@ -2,8 +2,8 @@
  * @Author: mohaiyo
  * @gitHub: 'https://github.com/Mohaiyo'
  * @Date: 2018-01-19 11:35:57
- * @Last Modified by:   mohaiyo
- * @Last Modified time: 2018-01-19 11:35:57
+ * @Last Modified by: mohaiyo
+ * @Last Modified time: 2018-02-10 16:52:44
  */
 
 'use strict'
@@ -13,7 +13,7 @@ import qs from 'qs'
 import NProgress from 'nprogress'
 import Message from 'components/common/message/index.js'
 
-const baseURL = '/'
+const baseURL = '/api'
 // 请求头配置
 axios.interceptors.request.use(config => {
   // 判断localStorage中是否存在api_token

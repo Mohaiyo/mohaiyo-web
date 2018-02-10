@@ -22,8 +22,8 @@
     </form>
     <editor @getValue="getValue"/>
     <div class="submit btn">
-      <input type="button" value="取消" @click="cancel">
-      <input type="button" value="发布文章" @click="submit">
+      <input type="button" value="取消" @click="cancel" >
+      <input type="button" value="发布文章" @click="submit" :disabled="hasLogin === 'false'">
     </div>
   </div>
 </template>
@@ -40,12 +40,13 @@ export default {
       source: '1',
       link: '',
       cateLists: [],
-      cate_name: ''
+      cate_name: '',
+      hasLogin: sessionStorage.getItem('hasLogin')
     }
   },
   methods: {
     checkIfLogin () {
-      this.$axios.get('/api/posts/create', {}).then(res => {
+      this.$axios.get('/posts/create', {}).then(res => {
         let data = res
         if (data.code === 400) {
           this.$message({
@@ -75,7 +76,7 @@ export default {
         link: this.link
       }
       console.log(this.category_name)
-      this.$axios.post('/api/posts/create', params).then(res => {
+      this.$axios.post('/posts/create', params).then(res => {
         let data = res
         if (data.code === 200) {
           this.$message({
@@ -103,7 +104,7 @@ export default {
         cate_info: 'css是一种层叠样式表',
         cate_order: '2'
       }
-      this.$axios.post('/api/categorys/create', params).then(res => {
+      this.$axios.post('/categorys/create', params).then(res => {
         this.$message({
           type: 'info',
           message: res.message
@@ -111,7 +112,7 @@ export default {
       })
     },
     getCateLists () {
-      this.$axios.get('/api/categorys/getLists').then(res => {
+      this.$axios.get('/categorys/getLists').then(res => {
         let data = res
         if (data.code === 200) {
           this.cateLists = data.cateLists
@@ -274,6 +275,11 @@ $bule: #007ac0;
       padding: 9.6px 19.2px;
       font-size: 10px;
       margin: 0 20px;
+    }
+    input:disabled {
+      background-color: #ddd;
+      border: 2px solid #ddd;
+      color:#000;
     }
   }
 }

@@ -42,7 +42,7 @@
       </div>
     </section>
     <section class="side-bar">
-      <category-list :cate-lists="cateLists"></category-list>
+      <category-list :cate-lists="cateLists" @getCateLists="getCateLists"></category-list>
     </section>
   </div>
 </template>
@@ -57,8 +57,36 @@ export default {
       cateLists: []
     }
   },
+  mounted () {
+    this.queryCateLists()
+  },
   components: {
     categoryList
+  },
+  methods: {
+    queryCateLists () {
+      let params = {}
+      this.$axios.get('/categorys/getLists', params).then(res => {
+        this.cateLists = res.cateLists
+      })
+    },
+    getCateLists (id) {
+      let params = {
+        pageNo: 1,
+        pageSize: 10,
+        categoryId: id
+      }
+      this.$axios.get('/posts', params).then(res => {
+        if (res.code === 200) {
+          this.postLists = res.data.postLists.map(item => {
+            if (item.content.length > 240) {
+              item.content = item.content.substr(0, 240) + '...'
+            }
+            return item
+          })
+        }
+      })
+    }
   }
 }
 </script>

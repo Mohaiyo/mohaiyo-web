@@ -10,7 +10,7 @@
       </div>
       <i class="icon icon-arrow-right"></i>
     </a>
-    <div class="no-data" else>
+    <div class="no-data" v-else>
       暂无数据
     </div>
 
