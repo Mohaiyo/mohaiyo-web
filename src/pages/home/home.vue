@@ -24,7 +24,9 @@
     </section>
     <section class="side-bar">
       <category-list :cate-lists="cateLists" @getCateLists="getCateLists(id)"></category-list>
+      <!-- <date-picker v-model="value1" lang="zh"></date-picker> -->
     </section>
+
   </div>
 </template>
 
@@ -33,6 +35,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import articleList from 'components/common/articleList'
 import categoryList from 'components/common/categoryList'
+// import datePicker from 'components/common/datepicker/index.js'
 export default {
   name: 'home',
   data () {
@@ -57,7 +60,8 @@ export default {
           disabledClass: 'my-button-disabled',
           hiddenClass: 'my-button-hidden'
         }
-      }
+      },
+      value1: ''
     }
   },
   computed: {
@@ -79,6 +83,7 @@ export default {
     swiperSlide,
     articleList,
     categoryList
+    // datePicker
   },
   methods: {
     fetchIndexData () {
