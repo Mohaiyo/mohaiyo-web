@@ -64,7 +64,7 @@ export default {
       this.signIn()
     },
     getCaptchas () {
-      this.$axios.get('/api/signin/captchas', {}).then(res => {
+      this.$axios.get('/signin/captchas', {}).then(res => {
         this.smsCode = res.smsCode
       })
     },
@@ -93,10 +93,10 @@ export default {
         password: this.password,
         cap_code: this.cap_code
       }
-      this.$axios.post('/api/signin', params).then(res => {
+      this.$axios.post('/signin', params).then(res => {
         let data = res
         if (data.code === 200) {
-          this.$router.push({ path: '/home/index', params: {} })
+          this.$router.push({ path: '/home/index' })
         } else {
           // 刷新验证码
           this.getCaptchas()

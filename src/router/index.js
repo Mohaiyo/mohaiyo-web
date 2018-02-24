@@ -38,7 +38,7 @@ export default new Router({
     }
   },
   routes: [
-    { path: '', redirect: '/home' },
+    { path: '/', redirect: '/home' },
     { path: '/sign_in', component: SignIn, name: 'signIn' },
     { path: '/sign_up', component: SignUp, name: 'signUp' },
     {

@@ -69,14 +69,9 @@ export default {
       return this.$refs.mySwiper.swiper
     }
   },
-  mounted () {
+  created () {
     this.fetchIndexData()
     this.queryCateLists()
-    // console.log(this.$root)
-    // current swiper instance
-    // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-    // console.log('this is current swiper instance object', this.swiper)
-    // this.swiper.slideTo(3, 1000, false)
   },
   components: {
     swiper,
@@ -91,11 +86,11 @@ export default {
         pageNo: 1,
         pageSize: 10
       }
-      this.$axios.get('/api/posts', params).then(res => {
+      this.$axios.get('/posts', params).then(res => {
         if (res.code === 200) {
           this.postLists = res.data.postLists.map(item => {
-            if (item.content.length > 240) {
-              item.content = item.content.substr(0, 240) + '...'
+            if (item.content.length > 170) {
+              item.content = item.content.substr(0, 170) + '...'
             }
             return item
           })
@@ -104,17 +99,18 @@ export default {
     },
     queryCateLists () {
       let params = {}
-      this.$axios.get('/api/categorys/getLists', params).then(res => {
+      this.$axios.get('/categorys/getLists', params).then(res => {
         this.cateLists = res.cateLists
       })
     },
     getCateLists (id) {
+      console.log(id)
       let params = {
         pageNo: 1,
         pageSize: 10,
         categoryId: id
       }
-      this.$axios.get('/api/posts', params).then(res => {
+      this.$axios.get('/posts', params).then(res => {
         if (res.code === 200) {
           this.postLists = res.data.postLists.map(item => {
             if (item.content.length > 240) {

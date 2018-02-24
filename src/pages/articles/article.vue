@@ -224,7 +224,7 @@ export default {
       let params = {
         id: this.arcticlId
       }
-      this.$axios.post('/api/posts/getDetail', params).then(res => {
+      this.$axios.post('/posts/getDetail', params).then(res => {
         this.detail = res.postdetail.data
         this.author = res.postdetail.data.author
         this.commentsNum = res.postdetail.data.comments.length
@@ -245,7 +245,7 @@ export default {
       let param = {
         id: this.detail._id
       }
-      this.$axios.post('/api/posts/like', param).then(res => {
+      this.$axios.post('/posts/like', param).then(res => {
         if (res.code === 200) {
           this.$message({
             type: 'success',
@@ -270,7 +270,7 @@ export default {
         article_id: this.arcticlId,
         contents: this.comments
       }
-      this.$axios.post('/api/comments/new', params).then(res => {
+      this.$axios.post('/comments/new', params).then(res => {
         this.$message({
           type: 'success',
           message: '发表评论成功！'
